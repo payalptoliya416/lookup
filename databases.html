@@ -730,11 +730,8 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 99;
+      inset: 0;
+      z-index: 9999; /* 🔥 IMPORTANT FIX */
       background: rgba(24, 15, 38, 0.97);
       backdrop-filter: blur(16px);
       flex-direction: column;
@@ -760,16 +757,30 @@
       color: var(--accent);
     }
 
-    .close-btn {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.75rem;
-      cursor: pointer;
-    }
+ .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border2);
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+  background: var(--accent);
+  transform: rotate(90deg) scale(1.1);
+}
 
     .footer-nav {
       display: flex;
@@ -924,7 +935,7 @@
       }
 
       .tools-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1038,7 +1049,7 @@ These line items don’t appear on the headline price — but they determine wha
 </p>
     </div>
 
-    <div class="steps-grid">
+    <div class="container steps-grid">
 
       <article class="step-card" data-step="1">
         <div class="step-num" aria-hidden="true">01</div>
