@@ -56,6 +56,9 @@
       padding: 0 16px; /* side spacing */
       width: 100%;
     }
+    @media (max-width: 1400px) {
+    .container { max-width: 1140px; }
+  }
     /* ─── NAV ─── */
     nav {
       position: fixed;
@@ -321,7 +324,9 @@
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
-
+    .text-center{
+      text-align: center;
+    }
     .section-title {
       font-family: 'Syne', sans-serif;
       font-size: clamp(1.6rem, 3.5vw, 2.5rem);
@@ -336,7 +341,6 @@
       color: var(--muted);
       font-size: 1.0625rem;
       font-weight: 300;
-      max-width: 680px;
       margin-bottom: 3rem;
     }
 
@@ -782,6 +786,11 @@
       gap: 8px;
       text-decoration: none;
     }
+    .nav-inner{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .nav-logo-icon {
       width: 32px;
@@ -923,24 +932,33 @@
 
 <body>
 
-  <!-- NAV -->
-  <nav id="main-nav" aria-label="Main navigation">
-      <div class="container">
-        <a href="#" class="nav-logo">Travel<span>.</span>Guide</a>
-        <ul class="nav-links" role="list">
-          <li><a href="#steps">The Playbook</a></li>
-          <li><a href="#costs">Hidden Costs</a></li>
-          <li><a href="#tools">Tools</a></li>
-          <li><a href="#faq">City Tips</a></li>
-        </ul>
-        <button class="nav-cta" onclick="document.getElementById('steps').scrollIntoView({behavior:'smooth'})">Start
-          Reading</button>
-        <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
-      </div>
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- HEADER -->
+<nav id="main-nav">
+  <div class="container nav-inner">
 
+    <!-- LEFT: LOGO -->
+    <a href="#" class="nav-logo">Travel<span>.</span>Guide</a>
+
+    <!-- CENTER: LINKS -->
+    <ul class="nav-links">
+      <li><a href="#steps">The Playbook</a></li>
+      <li><a href="#costs">Hidden Costs</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#faq">City Tips</a></li>
+    </ul>
+
+    <!-- RIGHT -->
+    <div class="nav-right">
+      <a href="#join" class="nav-cta">Get Started</a>
+
+      <!-- MOBILE -->
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="close-btn" id="close-menu" aria-label="Close menu">✕</button>
@@ -1000,18 +1018,25 @@
         platforms all promise to help. The trick is knowing how to use them in the right order. This guide walks through a
         practical sequence for finding the hotel that matches your trip — whether you're heading to a conference, a family
         reunion, a stadium event, or just a long weekend away.</p>
-      <p class="section-intro" style="margin-bottom:0;">The principle is simple: start with where you need to <strong
-          style="color:var(--accent3);">be</strong>, not where you want to <strong
-          style="color:var(--accent3);">stay</strong>.</p>
+      <p class="section-intro">
+        The principle is simple: start with where you need to 
+        <strong style="color:var(--accent);">be</strong>, not where you want to 
+        <strong style="color:var(--accent);">stay</strong>.
+        </p>
     </div>
   </section>
 
   <!-- STEPS -->
   <section id="steps" class="section" aria-labelledby="steps-title">
-    <div class="section-label">The 9-Step Framework</div>
-    <h2 class="section-title" id="steps-title">The Complete Booking Playbook</h2>
-    <p class="section-intro">Follow this sequence and you'll almost always end up somewhere you'd happily book again.
-    </p>
+    <div class="text-center">
+      <div class="section-label">The 9-Step Framework</div>
+      <h2 class="section-title" id="steps-title">The Complete Booking Playbook</h2>
+      <p class="section-intro">Follow this sequence and you'll almost always end up somewhere you'd happily book again.
+      </p>
+      <p class="section-intro">
+These line items don’t appear on the headline price — but they determine what you’ll actually pay.
+</p>
+    </div>
 
     <div class="steps-grid">
 
@@ -1034,6 +1059,7 @@
           <p>Distance lies. Half a mile in midtown Manhattan and half a mile in suburban Atlanta describe two completely
             different travel experiences. Switch your map view from radius to travel time. Aim for a 10 to 15 minute
             door-to-door trip, factoring in the walk to the station, the wait, and the final approach on the other end.
+            While scanning the map, also check the surroundings — grocery stores, late-night food, pharmacies, and well-lit streets. These small things define how comfortable your stay actually feels.
           </p>
         </div>
       </article>
@@ -1284,6 +1310,9 @@
       <h2 id="takeaway-title">The hotel that fits your trip is hiding <em>two clicks past the obvious answer</em></h2>
       <p>Once you internalize that headlines lie and maps mislead, the search gets easier. Run the sequence and you
         almost always end up somewhere you'd happily book again.</p>
+        <p style="margin-top:20px; font-size:14px; color:var(--accent3);">
+<strong>Key takeaway:</strong> Great hotel choices come from a clear sequence: anchor, time-distance, true price, smart timing, careful reviews, and flexibility.
+</p>
       <div class="steps-list" aria-label="Key steps summary">
         <span class="step-tag">Anchor First</span>
         <span class="step-tag">Measure in Minutes</span>
@@ -1298,38 +1327,34 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
+<footer class="main-footer">
+  <div class="container">
 
-      <!-- NEW NAV STYLE FOOTER -->
-      <nav class="footer-nav">
+    <div class="footer-nav">
 
-        <!-- LEFT: LOGO -->
-        <a href="#" class="nav-brand">
-          <div class="nav-logo-icon">
-            <svg viewBox="0 0 24 24">
-              <polygon points="9.5,7 9.5,17 18,12" />
-            </svg>
-          </div>
-          <div class="nav-logo-text">videos<span>.ms</span></div>
-        </a>
+      <!-- LEFT: SAME AS HEADER -->
+      <a href="#" class="nav-logo">Travel<span>.</span>Guide</a>
 
-        <!-- CENTER: LINKS -->
-        <ul class="footer-links">
-          <li><a href="#steps">The Playbook</a></li>
-          <li><a href="#costs">Hidden Costs</a></li>
-          <li><a href="#tools">Tools</a></li>
-          <li><a href="#faq">City Tips</a></li>
-        </ul>
+      <!-- CENTER: SAME LINKS -->
+      <ul class="nav-links footer-links">
+        <li><a href="#steps">The Playbook</a></li>
+        <li><a href="#costs">Hidden Costs</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#faq">City Tips</a></li>
+      </ul>
 
-        <!-- RIGHT: BUTTON -->
-        <a href="#join" class="nav-cta">Get Started</a>
-
-      </nav>
+      <!-- RIGHT: SAME BUTTON -->
+      <a href="#join" class="nav-cta">Get Started</a>
 
     </div>
-  </footer>
 
+    <!-- COPY -->
+    <div class="footer-copy">
+      © 2025 Travel.Guide — All rights reserved
+    </div>
+
+  </div>
+</footer>
   <script>
     // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburger');
