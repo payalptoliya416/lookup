@@ -47,8 +47,8 @@
         }
 
         section {
-  scroll-margin-top: 90px;
-}
+            scroll-margin-top: 90px;
+        }
 
         body {
             background: var(--bg);
@@ -448,12 +448,14 @@
             align-items: start;
             margin-top: 2.5rem;
         }
-@media (max-width: 900px) {
-  .problem-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
+
+        @media (max-width: 900px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
         .problem-text p {
             color: var(--muted);
             margin-bottom: 1rem;
@@ -469,7 +471,7 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 1.75rem;
-            overflow-x: auto; 
+            overflow-x: auto;
         }
 
         .log-line {
@@ -481,7 +483,8 @@
             display: flex;
             gap: 1rem;
             align-items: center;
-              flex-wrap: wrap; /* 🔥 important */
+            flex-wrap: wrap;
+            /* 🔥 important */
         }
 
         .log-line:last-child {
@@ -1096,7 +1099,7 @@
 
     <!-- NAV -->
     <nav id="main-nav">
-       <a class="nav-logo" href="#main-nav">audit<span class="dot">.</span>ms</a>
+        <a class="nav-logo" href="#main-nav">audit<span class="dot">.</span>ms</a>
         <ul class="nav-links">
             <li><a href="#problem">Problem</a></li>
             <li><a href="#capabilities">Features</a></li>
@@ -1229,6 +1232,11 @@
                     identity provider, cloud platforms, productivity suite, endpoint tools, and core business
                     applications. Every login, permission change, file access, configuration update, and approval flow
                     lands in one searchable, tamper-evident timeline.</p>
+                <p>
+                    Instead of running an audit, you live inside one. Reports generate themselves.
+                    Evidence is collected automatically. Gaps surface the moment they appear,
+                    not the week before your next assessment.
+                </p>
             </div>
         </div>
     </section>
@@ -1551,27 +1559,27 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="logo">
-                    <a href="#main-nav" class="nav-logo">audit<span class="dot">.</span>ms</a>
+                        <a href="#main-nav" class="nav-logo">audit<span class="dot">.</span>ms</a>
                     </div>
                     <p>Continuous audit, simplified. One audit layer for your entire stack.</p>
                 </div>
                 <div class="footer-nav">
-                <a href="#problem">Problem</a>
-                <a href="#capabilities">Features</a>
-                <a href="#how">How It Works</a>
-                <a href="#integrations">Integrations</a>
-                <a href="#faq">FAQ</a>
-                </div>
-                </div>
-                <div class="footer-bottom">
-                    <p class="footer-copy">© audit.ms. All rights reserved. Continuous audit, simplified.</p>
-                    <div class="footer-badges">
-                        <span class="fbadge">SOC 2 Type II</span>
-                        <span class="fbadge">Encrypted</span>
-                        <span class="fbadge">GDPR</span>
-                    </div>
+                    <a href="#problem">Problem</a>
+                    <a href="#capabilities">Features</a>
+                    <a href="#how">How It Works</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="#faq">FAQ</a>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© audit.ms. All rights reserved. Continuous audit, simplified.</p>
+                <div class="footer-badges">
+                    <span class="fbadge">SOC 2 Type II</span>
+                    <span class="fbadge">Encrypted</span>
+                    <span class="fbadge">GDPR</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -1638,26 +1646,26 @@
         setInterval(highlightLog, 1200);
     </script>
     <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const id = this.getAttribute('href');
-    if (id === "#") return;
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const id = this.getAttribute('href');
+                if (id === "#") return;
 
-    const el = document.querySelector(id);
-    if (el) {
-      e.preventDefault();
+                const el = document.querySelector(id);
+                if (el) {
+                    e.preventDefault();
 
-      const offset = 80;
-      const top = el.getBoundingClientRect().top + window.scrollY;
+                    const offset = 80;
+                    const top = el.getBoundingClientRect().top + window.scrollY;
 
-      window.scrollTo({
-        top: top - offset,
-        behavior: "smooth"
-      });
-    }
-  });
-});
-</script>
+                    window.scrollTo({
+                        top: top - offset,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
