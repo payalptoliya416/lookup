@@ -42,11 +42,9 @@
         html {
             scroll-behavior: smooth
         }
-
         html {
-            scroll-padding-top: 90px;
+        scroll-padding-top: 90px;
         }
-
         body {
             background: var(--bg);
             color: var(--text);
@@ -708,6 +706,9 @@
             opacity: 1;
             transform: translateY(0)
         }
+        .nav-links .btn-ghost , .nav-links .btn-primary{
+            display: none;
+        }
 
         /* RESPONSIVE */
         @media (max-width:960px) {
@@ -734,15 +735,15 @@
                 padding: 80px 0 50px
             }
 
-            .nav-links,
+            .nav-links,  .nav-cta .btn-primary,
             .nav-cta .btn-ghost {
-                display: none
+                display: none;
             }
-
-            .nav-cta .btn-ghost,
-            .nav-cta .btn-primary {
-                display: none
-            }
+          .nav-links .btn-ghost , .nav-links .btn-primary{
+            display: block;
+            margin-bottom: 20px;
+            width:  150px;
+        }
 
             .menu-toggle {
                 display: block
@@ -793,7 +794,8 @@
                     <li><a href="#footer">About</a></li>
 
                     <li>
-                        <a href="#cta" class="btn btn-primary" style="display:block;text-align:center;margin-top:10px;">
+                        <a href="#cta" class="btn btn-ghost">Sign In</a>
+                        <a href="#cta" class="btn btn-primary" >
                             Book a Demo
                         </a>
                     </li>
@@ -922,8 +924,7 @@
                     theatrics.</p>
             </div>
             <div class="grid grid-3" id="pricingGrid"></div>
-            <div style="text-align:center;margin-top:40px"><a href="#pricing" class="link-arrow">See Full Pricing →</a>
-            </div>
+            <div style="text-align:center;margin-top:40px"><a href="#pricing" class="link-arrow">See Full Pricing →</a></div>
         </div>
     </section>
 
@@ -1109,25 +1110,25 @@
         document.querySelectorAll(".reveal").forEach(el => io.observe(el));
     </script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const id = this.getAttribute('href');
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const id = this.getAttribute('href');
 
-                if (id === "#") return;
+    if (id === "#") return;
 
-                const el = document.querySelector(id);
+    const el = document.querySelector(id);
 
-                if (el) {
-                    e.preventDefault();
+    if (el) {
+      e.preventDefault();
 
-                    window.scrollTo({
-                        top: el.offsetTop - 80,
-                        behavior: "smooth"
-                    });
-                }
-            });
-        });
-    </script>
+      window.scrollTo({
+        top: el.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+</script>
 </body>
 
 </html>
