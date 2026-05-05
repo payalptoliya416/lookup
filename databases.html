@@ -540,7 +540,74 @@
     background: none; border: none; color: var(--text);
     font-size: 1.75rem; cursor: pointer;
   }
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
+/* LOGO */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #883CF0, #7B5CFF);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.nav-logo-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-logo-text span {
+  color: #883CF0;
+}
+
+/* LINKS CENTER */
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: #D6D6D6;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* BUTTON RIGHT */
+.nav-cta {
+  background: linear-gradient(135deg, #883CF0, #7B5CFF);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
   /* ─── ANIMATIONS ─── */
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-16px); }
@@ -562,6 +629,17 @@
     .hero-meta span::before { display: none; }
 
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   }
 
   @media (max-width: 480px) {
@@ -887,17 +965,35 @@
 </section>
 
 <!-- FOOTER -->
-<footer role="contentinfo">
+<footer>
   <div class="footer-inner">
-    <div class="footer-logo">Travel<span>.</span>Guide</div>
-    <p class="footer-note">This guide is part of an ongoing travel resources series. Always confirm policies, fees, and availability directly with the property before finalizing a booking.</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#steps">The Playbook</a>
-      <a href="#costs">Hidden Costs</a>
-      <a href="#tools">Tools</a>
-      <a href="#faq">City Tips</a>
+
+    <!-- NEW NAV STYLE FOOTER -->
+    <nav class="footer-nav">
+      
+      <!-- LEFT: LOGO -->
+      <a href="#" class="nav-brand">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <polygon points="9.5,7 9.5,17 18,12"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">videos<span>.ms</span></div>
+      </a>
+
+      <!-- CENTER: LINKS -->
+      <ul class="footer-links">
+        <li><a href="#steps">The Playbook</a></li>
+        <li><a href="#costs">Hidden Costs</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#faq">City Tips</a></li>
+      </ul>
+
+      <!-- RIGHT: BUTTON -->
+      <a href="#join" class="nav-cta">Get Started</a>
+
     </nav>
-    <p class="footer-copy">© 2025 Travel Guide · All rights reserved</p>
+
   </div>
 </footer>
 
