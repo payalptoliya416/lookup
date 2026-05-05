@@ -50,15 +50,25 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
     .container {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 0 16px; /* side spacing */
+      padding: 0 16px;
+      /* side spacing */
       width: 100%;
     }
+
     @media (max-width: 1400px) {
-    .container { max-width: 1140px; }
-  }
+      .container {
+        max-width: 1140px;
+      }
+    }
+
     /* ─── NAV ─── */
     nav {
       position: fixed;
@@ -150,7 +160,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 7rem 2rem 4rem;
+      padding: 7rem 0rem 4rem;
       position: relative;
       overflow: hidden;
       background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(136, 60, 240, 0.18) 0%, transparent 70%),
@@ -283,14 +293,14 @@
       background: var(--card);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 2rem;
+      padding: 50px 0;
     }
 
     .stats-inner {
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.5rem;
+      gap: 25px;
       text-align: center;
     }
 
@@ -313,7 +323,7 @@
     /* ─── SECTION WRAPPER ─── */
     .section {
       margin: 0 auto;
-      padding: 5rem 2rem;
+      padding: 5rem 0rem;
     }
 
     .section-label {
@@ -324,9 +334,11 @@
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
-    .text-center{
+
+    .text-center {
       text-align: center;
     }
+
     .section-title {
       font-family: 'Syne', sans-serif;
       font-size: clamp(1.6rem, 3.5vw, 2.5rem);
@@ -343,7 +355,7 @@
       font-weight: 300;
       margin-bottom: 3rem;
     }
-
+ 
     /* ─── STEP CARDS ─── */
     .steps-grid {
       display: flex;
@@ -422,7 +434,7 @@
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 5rem 2rem;
+      padding: 5rem 0rem;
     }
 
     .costs-inner {
@@ -470,7 +482,7 @@
     /* ─── QUOTE ─── */
     .quote-section {
       margin: 0 auto;
-      padding: 4rem 2rem;
+      padding: 4rem 0rem;
     }
 
     .quote-block {
@@ -508,7 +520,7 @@
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 5rem 2rem;
+      padding: 5rem 0rem;
     }
 
     .tools-inner {
@@ -562,7 +574,7 @@
     /* ─── ACCORDION ─── */
     .accordion-section {
       margin: 0 auto;
-      padding: 5rem 2rem;
+      padding: 5rem 0rem;
     }
 
     .accordion-item {
@@ -633,7 +645,7 @@
       background: linear-gradient(135deg, rgba(136, 60, 240, 0.15) 0%, rgba(123, 92, 255, 0.08) 100%);
       border-top: 1px solid var(--border2);
       border-bottom: 1px solid var(--border2);
-      padding: 5rem 2rem;
+      padding: 5rem 0rem;
       text-align: center;
     }
 
@@ -693,7 +705,7 @@
     footer {
       background: var(--bg2);
       border-top: 1px solid var(--border);
-      padding: 2.5rem 2rem;
+      padding: 2.5rem 0rem;
       text-align: center;
     }
 
@@ -731,13 +743,14 @@
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 9999; /* 🔥 IMPORTANT FIX */
+      z-index: 9999;
+      /* 🔥 IMPORTANT FIX */
       background: rgba(24, 15, 38, 0.97);
       backdrop-filter: blur(16px);
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 20px;
     }
 
     .mobile-menu.open {
@@ -746,7 +759,7 @@
 
     .mobile-menu a {
       font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
+      font-size: 20px;
       font-weight: 700;
       color: var(--text);
       text-decoration: none;
@@ -757,30 +770,30 @@
       color: var(--accent);
     }
 
- .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid var(--border2);
-  color: #fff;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  z-index: 10000;
-  transition: all 0.25s ease;
-}
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border2);
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      z-index: 10000;
+      transition: all 0.25s ease;
+    }
 
-.close-btn:hover {
-  background: var(--accent);
-  transform: rotate(90deg) scale(1.1);
-}
+    .close-btn:hover {
+      background: var(--accent);
+      transform: rotate(90deg) scale(1.1);
+    }
 
     .footer-nav {
       display: flex;
@@ -797,7 +810,8 @@
       gap: 8px;
       text-decoration: none;
     }
-    .nav-inner{
+
+    .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -897,11 +911,11 @@
 
       .hero h1 {
         font-size: 2rem;
+        line-height: 42px;
       }
 
       .hero-meta {
-        flex-direction: column;
-        gap: 0.25rem;
+        flex-wrap: wrap;
       }
 
       .hero-meta span::before {
@@ -927,7 +941,7 @@
 
     @media (max-width: 480px) {
       .stats-inner {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
 
       .costs-grid {
@@ -943,33 +957,32 @@
 
 <body>
 
-<!-- HEADER -->
-<nav id="main-nav">
-  <div class="container nav-inner">
+  <!-- HEADER -->
+  <nav id="main-nav">
+    <div class="container nav-inner">
 
-    <!-- LEFT: LOGO -->
-    <a href="#" class="nav-logo">Travel<span>.</span>Guide</a>
+      <!-- LEFT: LOGO -->
+      <a href="javascript:void(0)" class="nav-logo">Travel<span>.</span>Guide</a>
 
-    <!-- CENTER: LINKS -->
-    <ul class="nav-links">
-      <li><a href="#steps">The Playbook</a></li>
-      <li><a href="#costs">Hidden Costs</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#faq">City Tips</a></li>
-    </ul>
+      <!-- CENTER: LINKS -->
+      <ul class="nav-links">
+        <li><a href="#steps">The Playbook</a></li>
+        <li><a href="#costs">Hidden Costs</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#faq">City Tips</a></li>
+      </ul>
 
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <a href="#join" class="nav-cta">Get Started</a>
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <a href="#steps" class="nav-cta">Get Started</a>
+        <!-- MOBILE -->
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-      <!-- MOBILE -->
-      <button class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-
-  </div>
-</nav>
+  </nav>
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="close-btn" id="close-menu" aria-label="Close menu">✕</button>
@@ -981,7 +994,7 @@
 
   <!-- HERO -->
   <header class="hero" role="banner">
-    <div>
+    <div class="container">
       <div class="hero-badge">Travel Planning · Updated for Today's Traveler</div>
       <h1>Smart Hotel Hunting:<br /><em>A Practical Playbook</em></h1>
       <p class="hero-sub">Picking a hotel close to what you actually want to see is less about luck and more about a
@@ -1026,27 +1039,29 @@
       <div class="section-label">The Intelligence Briefing</div>
       <h2 class="section-title" id="intro-title">The tools are powerful. The volume of choice has exploded.</h2>
       <p class="section-intro">Map layers, dynamic pricing, AI-driven recommendations, and a thousand niche booking
-        platforms all promise to help. The trick is knowing how to use them in the right order. This guide walks through a
-        practical sequence for finding the hotel that matches your trip — whether you're heading to a conference, a family
+        platforms all promise to help. The trick is knowing how to use them in the right order. This guide walks through
+        a
+        practical sequence for finding the hotel that matches your trip — whether you're heading to a conference, a
+        family
         reunion, a stadium event, or just a long weekend away.</p>
       <p class="section-intro">
-        The principle is simple: start with where you need to 
-        <strong style="color:var(--accent);">be</strong>, not where you want to 
+        The principle is simple: start with where you need to
+        <strong style="color:var(--accent);">be</strong>, not where you want to
         <strong style="color:var(--accent);">stay</strong>.
-        </p>
+      </p>
     </div>
   </section>
 
   <!-- STEPS -->
   <section id="steps" class="section" aria-labelledby="steps-title">
-    <div class="text-center">
+    <div class="text-center container">
       <div class="section-label">The 9-Step Framework</div>
       <h2 class="section-title" id="steps-title">The Complete Booking Playbook</h2>
       <p class="section-intro">Follow this sequence and you'll almost always end up somewhere you'd happily book again.
       </p>
       <p class="section-intro">
-These line items don’t appear on the headline price — but they determine what you’ll actually pay.
-</p>
+        These line items don’t appear on the headline price — but they determine what you’ll actually pay.
+      </p>
     </div>
 
     <div class="container steps-grid">
@@ -1070,7 +1085,8 @@ These line items don’t appear on the headline price — but they determine wha
           <p>Distance lies. Half a mile in midtown Manhattan and half a mile in suburban Atlanta describe two completely
             different travel experiences. Switch your map view from radius to travel time. Aim for a 10 to 15 minute
             door-to-door trip, factoring in the walk to the station, the wait, and the final approach on the other end.
-            While scanning the map, also check the surroundings — grocery stores, late-night food, pharmacies, and well-lit streets. These small things define how comfortable your stay actually feels.
+            While scanning the map, also check the surroundings — grocery stores, late-night food, pharmacies, and
+            well-lit streets. These small things define how comfortable your stay actually feels.
           </p>
         </div>
       </article>
@@ -1193,10 +1209,12 @@ These line items don’t appear on the headline price — but they determine wha
 
   <!-- QUOTE -->
   <section class="quote-section" aria-label="Featured insight">
-    <div class="quote-block">
-      <p>The hotels that look best in photos are not always the ones that feel best to stay in. The ones that show up
-        first on the booking site are not always the cheapest. The closest one on the map is not always the closest one
-        in real travel time. The shiniest rate is not always the final price.</p>
+    <div class="container">
+      <div class="quote-block">
+        <p>The hotels that look best in photos are not always the ones that feel best to stay in. The ones that show up
+          first on the booking site are not always the cheapest. The closest one on the map is not always the closest one
+          in real travel time. The shiniest rate is not always the final price.</p>
+      </div>
     </div>
   </section>
 
@@ -1248,19 +1266,20 @@ These line items don’t appear on the headline price — but they determine wha
       <h2 class="section-title" id="faq-title">Adapt to Where You're Going</h2>
       <p class="section-intro">Every destination has its own booking logic. Here's how to think about the most common
         scenarios.</p>
-  
+
       <div class="accordion-item" role="region">
         <button class="accordion-trigger" aria-expanded="false">
           Booking near a rail hub or transit city
           <span class="accordion-icon" aria-hidden="true">+</span>
         </button>
         <div class="accordion-body">
-          <p>In dense rail-driven cities, proximity to a single subway line can be more valuable than a closer hotel that
+          <p>In dense rail-driven cities, proximity to a single subway line can be more valuable than a closer hotel
+            that
             requires a transfer. Think about the number of stops, not just distance on a map. The walk from the hotel to
             the nearest station — and the walk at the other end — counts more than the headline distance.</p>
         </div>
       </div>
-  
+
       <div class="accordion-item" role="region">
         <button class="accordion-trigger" aria-expanded="false">
           Booking for car-dependent cities
@@ -1268,12 +1287,13 @@ These line items don’t appear on the headline price — but they determine wha
         </button>
         <div class="accordion-body">
           <p>In sprawling, car-dependent cities, free parking and a quick highway on-ramp matter more than walkability
-            scores. Factor in nightly parking fees and whether rideshare surge pricing is likely during your stay. A hotel
+            scores. Factor in nightly parking fees and whether rideshare surge pricing is likely during your stay. A
+            hotel
             near a major highway junction often offers better value than one near a walkable strip that requires a long
             drive anyway.</p>
         </div>
       </div>
-  
+
       <div class="accordion-item" role="region">
         <button class="accordion-trigger" aria-expanded="false">
           Booking in a compact European city
@@ -1281,24 +1301,27 @@ These line items don’t appear on the headline price — but they determine wha
         </button>
         <div class="accordion-body">
           <p>In compact European centers, the historic core might be charming but punishing if your luggage hates
-            cobblestones. Look one neighborhood out from the main tourist zone — you'll often find quieter streets, better
+            cobblestones. Look one neighborhood out from the main tourist zone — you'll often find quieter streets,
+            better
             local food, and significantly lower rates for the same or better access via tram or metro.</p>
         </div>
       </div>
-  
+
       <div class="accordion-item" role="region">
         <button class="accordion-trigger" aria-expanded="false">
           Booking for a conference or multi-day event
           <span class="accordion-icon" aria-hidden="true">+</span>
         </button>
         <div class="accordion-body">
-          <p>When the conference center is your anchor, look beyond the official hotel block. Properties 1–2 stops away on
-            a direct rail line often offer significantly lower rates with the same travel time. Book refundable early, set
+          <p>When the conference center is your anchor, look beyond the official hotel block. Properties 1–2 stops away
+            on
+            a direct rail line often offer significantly lower rates with the same travel time. Book refundable early,
+            set
             a price alert, and check again in the 10-day window before arrival — conference hotel blocks frequently
             release rooms as the event approaches.</p>
         </div>
       </div>
-  
+
       <div class="accordion-item" role="region">
         <button class="accordion-trigger" aria-expanded="false">
           Booking for sustainability-focused travel
@@ -1306,7 +1329,8 @@ These line items don’t appear on the headline price — but they determine wha
         </button>
         <div class="accordion-body">
           <p>For travelers who care about sustainability, watch for verifiable certifications rather than marketing
-            language. Third-party accreditations (from recognized bodies, not self-reported) help separate genuinely green
+            language. Third-party accreditations (from recognized bodies, not self-reported) help separate genuinely
+            green
             properties from the merely well-decorated ones. Boutique platforms focusing on eco-conscious stays often
             surface these more reliably than major aggregators.</p>
         </div>
@@ -1316,14 +1340,15 @@ These line items don’t appear on the headline price — but they determine wha
 
   <!-- TAKEAWAY -->
   <section class="takeaway-section" aria-labelledby="takeaway-title">
-    <div class="takeaway-inner">
+    <div class="container takeaway-inner">
       <div class="section-label">The Quiet Rule Most Travelers Miss</div>
       <h2 id="takeaway-title">The hotel that fits your trip is hiding <em>two clicks past the obvious answer</em></h2>
       <p>Once you internalize that headlines lie and maps mislead, the search gets easier. Run the sequence and you
         almost always end up somewhere you'd happily book again.</p>
-        <p style="margin-top:20px; font-size:14px; color:var(--accent3);">
-<strong>Key takeaway:</strong> Great hotel choices come from a clear sequence: anchor, time-distance, true price, smart timing, careful reviews, and flexibility.
-</p>
+      <p style="margin-top:20px; font-size:14px; color:var(--accent3);">
+        <strong>Key takeaway:</strong> Great hotel choices come from a clear sequence: anchor, time-distance, true
+        price, smart timing, careful reviews, and flexibility.
+      </p>
       <div class="steps-list" aria-label="Key steps summary">
         <span class="step-tag">Anchor First</span>
         <span class="step-tag">Measure in Minutes</span>
@@ -1338,34 +1363,34 @@ These line items don’t appear on the headline price — but they determine wha
   </section>
 
   <!-- FOOTER -->
-<footer class="main-footer">
-  <div class="container">
+  <footer class="main-footer">
+    <div class="container">
 
-    <div class="footer-nav">
+      <div class="footer-nav">
 
-      <!-- LEFT: SAME AS HEADER -->
-      <a href="#" class="nav-logo">Travel<span>.</span>Guide</a>
+        <!-- LEFT: SAME AS HEADER -->
+        <a href="javascript:void(0)" class="nav-logo">Travel<span>.</span>Guide</a>
 
-      <!-- CENTER: SAME LINKS -->
-      <ul class="nav-links footer-links">
-        <li><a href="#steps">The Playbook</a></li>
-        <li><a href="#costs">Hidden Costs</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#faq">City Tips</a></li>
-      </ul>
+        <!-- CENTER: SAME LINKS -->
+        <ul class="nav-links footer-links">
+          <li><a href="#steps">The Playbook</a></li>
+          <li><a href="#costs">Hidden Costs</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#faq">City Tips</a></li>
+        </ul>
 
-      <!-- RIGHT: SAME BUTTON -->
-      <a href="#join" class="nav-cta">Get Started</a>
+        <!-- RIGHT: SAME BUTTON -->
+        <a href="#steps" class="nav-cta">Get Started</a>
+
+      </div>
+
+      <!-- COPY -->
+      <div class="footer-copy">
+        © 2025 Travel.Guide — All rights reserved
+      </div>
 
     </div>
-
-    <!-- COPY -->
-    <div class="footer-copy">
-      © 2025 Travel.Guide — All rights reserved
-    </div>
-
-  </div>
-</footer>
+  </footer>
   <script>
     // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburger');
@@ -1427,11 +1452,32 @@ These line items don’t appear on the headline price — but they determine wha
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
-        nav.style.padding = '0.65rem 2rem';
+        nav.style.padding = '20px 0rem';
       } else {
         nav.style.padding = '1rem 2rem';
       }
     }, { passive: true });
+  </script>
+  <script id="smooth-scroll-fix">
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+
+          const offset = 80; // header height
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+
+          window.scrollTo({
+            top: elementPosition - offset,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
   </script>
 </body>
 
