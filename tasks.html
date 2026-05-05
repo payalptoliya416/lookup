@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eat Your Way Around the World — A Practical Guide to Culinary Travel</title>
+    <meta name="description"
+        content="Build trips around markets, kitchens, vineyards, and the people behind every plate. A practical guide to culinary travel done right." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #191127;
+            --bg2: #180F26;
+            --card: #23133A;
+            --card-hover: #1F1232;
+            --quiz-option: #1F1232;
+            --quiz-option-hover: #2A1647;
+            --border: #3A1C63;
+            --border2: #5E309D;
+            --accent: #883CF0;
+            --accent2: #7B5CFF;
+            --accent3: #B29DCE;
+            --text: #E2E8F0;
+            --muted: #D6D6D6;
+            --glow: 0 0 20px rgba(115, 0, 255, .3);
+            --glow-red: 0 0 20px rgba(196, 60, 255, .3);
+            --glow-green: 0 0 20px rgba(174, 0, 255, .3);
+            --container: 1320px;
+            --radius: 18px;
+            --tr: all .3s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px
+        }
+
+        body {
+            background: var(--bg);
+            background-image:
+                radial-gradient(900px 600px at 90% -10%, rgba(136, 60, 240, .18), transparent 60%),
+                radial-gradient(700px 500px at -10% 40%, rgba(123, 92, 255, .12), transparent 60%);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Syne', sans-serif;
+            line-height: 1.15;
+            color: #fff;
+            letter-spacing: -.02em
+        }
+
+        a {
+            color: var(--accent2);
+            text-decoration: none;
+            transition: var(--tr)
+        }
+
+        a:hover {
+            color: var(--accent3)
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        /* HEADER */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(24, 15, 38, .78);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            gap: 20px
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Syne';
+            font-weight: 800;
+            color: #fff;
+            font-size: 1.25rem
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: var(--glow);
+            display: grid;
+            place-items: center
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-weight: 500;
+            font-size: .95rem;
+            padding: 8px 14px;
+            border-radius: 8px
+        }
+
+        .nav-links a:hover {
+            background: var(--card);
+            color: #fff
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        /* HERO */
+        .hero {
+            padding: 96px 0 80px;
+            position: relative
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 60px;
+            align-items: center
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid var(--border2);
+            border-radius: 999px;
+            font-size: .8rem;
+            color: var(--accent3);
+            background: rgba(136, 60, 240, .08);
+            margin-bottom: 22px
+        }
+
+        .badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent)
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5.2vw, 4rem);
+            margin-bottom: 22px
+        }
+
+        .hero h1 span {
+            background: linear-gradient(120deg, var(--accent), var(--accent2), var(--accent3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin-bottom: 32px
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 26px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Syne';
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: var(--tr);
+            font-size: .98rem
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(136, 60, 240, .35)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(136, 60, 240, .55), var(--glow);
+            color: #fff
+        }
+
+        .btn-ghost {
+            background: var(--card);
+            color: var(--text);
+            border-color: var(--border)
+        }
+
+        .btn-ghost:hover {
+            background: var(--card-hover);
+            border-color: var(--border2);
+            box-shadow: var(--glow)
+        }
+
+        .hero-card {
+            background: linear-gradient(160deg, var(--card), var(--bg2));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--glow)
+        }
+
+        .hero-card h3 {
+            margin-bottom: 18px;
+            font-size: 1.2rem
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .pill {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--quiz-option);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .85rem;
+            transition: var(--tr);
+            cursor: pointer
+        }
+
+        .pill:hover {
+            background: var(--quiz-option-hover);
+            border-color: var(--border2);
+            color: #fff;
+            box-shadow: var(--glow)
+        }
+
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 80px
+        }
+
+        .section-head {
+            max-width: 780px;
+            margin: 0 auto 48px;
+            text-align: center
+        }
+
+        .eyebrow {
+            color: var(--accent2);
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-size: .82rem;
+            margin-bottom: 12px
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+            margin-bottom: 14px
+        }
+
+        .section-head p {
+            color: var(--muted)
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: var(--tr);
+            position: relative;
+            overflow: hidden
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background: var(--card-hover);
+            border-color: var(--border2);
+            box-shadow: var(--glow)
+        }
+
+        .card .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(136, 60, 240, .25), rgba(123, 92, 255, .15));
+            border: 1px solid var(--border2);
+            margin-bottom: 18px;
+            font-size: 1.4rem
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* PROSE BLOCKS */
+        .prose {
+            max-width: 880px;
+            margin: 0 auto;
+            color: var(--muted)
+        }
+
+        .prose p {
+            margin-bottom: 18px
+        }
+
+        .prose h3 {
+            color: #fff;
+            margin: 28px 0 12px;
+            font-size: 1.35rem
+        }
+
+        /* SPLIT (image-style block w/ stacked rows) */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: stretch
+        }
+
+        .split-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--tr)
+        }
+
+        .split-card:hover {
+            border-color: var(--border2);
+            box-shadow: var(--glow);
+            background: var(--card-hover)
+        }
+
+        .split-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px
+        }
+
+        .split-card p {
+            color: var(--muted)
+        }
+
+        /* TABS */
+        .tabs {
+            max-width: 980px;
+            margin: 0 auto
+        }
+
+        .tab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: var(--bg2);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            margin-bottom: 24px
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 18px;
+            background: transparent;
+            border: 0;
+            color: var(--muted);
+            font-family: 'Syne';
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: var(--tr);
+            font-size: .95rem
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            box-shadow: var(--glow)
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: var(--quiz-option-hover);
+            color: #fff
+        }
+
+        .tab-panel {
+            display: none;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fade .4s ease
+        }
+
+        .tab-panel h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem
+        }
+
+        .tab-panel p {
+            color: var(--muted);
+            margin-bottom: 14px
+        }
+
+        /* TIMELINE */
+        .timeline {
+            max-width: 880px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 28px
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(var(--accent), var(--accent2), transparent)
+        }
+
+        .tl-item {
+            position: relative;
+            padding: 18px 0 18px 26px;
+            margin-bottom: 8px
+        }
+
+        .tl-item::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 24px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+            border: 3px solid var(--bg)
+        }
+
+        .tl-item h3 {
+            font-size: 1.15rem;
+            margin-bottom: 6px
+        }
+
+        .tl-item p {
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* ACCORDION */
+        .acc {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .acc-item {
+            background: var(--quiz-option);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: var(--tr)
+        }
+
+        .acc-item:hover {
+            border-color: var(--border2)
+        }
+
+        .acc-q {
+            width: 100%;
+            text-align: left;
+            padding: 20px 24px;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-family: 'Syne';
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px
+        }
+
+        .acc-q .plus {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--border2);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            transition: var(--tr);
+            color: var(--accent2)
+        }
+
+        .acc-item.open .acc-q .plus {
+            transform: rotate(45deg);
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent)
+        }
+
+        .acc-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s ease;
+            color: var(--muted)
+        }
+
+        .acc-a-inner {
+            padding: 0 24px 22px
+        }
+
+        .acc-item.open .acc-a {
+            max-height: 500px
+        }
+
+        /* CTA */
+        .cta-band {
+            background: linear-gradient(135deg, rgba(136, 60, 240, .18), rgba(123, 92, 255, .08));
+            border: 1px solid var(--border2);
+            border-radius: 24px;
+            padding: 56px 40px;
+            text-align: center;
+            box-shadow: var(--glow)
+        }
+
+        .cta-band h2 {
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            margin-bottom: 14px
+        }
+
+        .cta-band p {
+            color: var(--muted);
+            max-width: 580px;
+            margin: 0 auto 28px
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 48px 0 32px;
+            margin-top: 40px;
+            color: var(--muted)
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 36px;
+            margin-bottom: 32px
+        }
+
+        .foot-grid h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            font-family: 'Syne'
+        }
+
+        .foot-grid ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .foot-grid a {
+            color: var(--muted);
+            font-size: .92rem
+        }
+
+        .foot-grid a:hover {
+            color: var(--accent2)
+        }
+
+        .copy {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            text-align: center;
+            font-size: .85rem;
+            color: var(--accent3)
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:960px) {
+            .hero {
+                padding: 60px 0 40px
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 36px
+            }
+
+            .split {
+                grid-template-columns: 1fr
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg2);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                gap: 0;
+                padding: 0 24px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .35s ease
+            }
+
+            .nav-links.open {
+                max-height: 500px;
+                padding: 16px 24px
+            }
+
+            .nav-links a {
+                padding: 12px;
+                border-radius: 8px;
+                display: block
+            }
+
+            .menu-btn {
+                display: inline-flex
+            }
+
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px
+            }
+        }
+
+        @media (max-width:560px) {
+            section {
+                padding: 60px 0
+            }
+
+            .cta-band {
+                padding: 40px 24px
+            }
+
+            .foot-grid {
+                grid-template-columns: 1fr
+            }
+
+            .tab-btn {
+                min-width: auto;
+                flex: 1 1 45%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav">
+            <a href="#top" class="logo"><span class="logo-mark">🍴</span> Tastebound</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#cooking">Cooking</a></li>
+                    <li><a href="#drink">Drink</a></li>
+                    <li><a href="#markets">Markets</a></li>
+                    <li><a href="#intention">Intention</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <span class="badge">Culinary Travel · Practical Guide</span>
+                    <h1>Eat Your Way <span>Around the World</span></h1>
+                    <p>Forget checklists of monuments. The most memorable trips are the ones you can taste — built
+                        around markets, kitchens, vineyards, and the people behind every plate.</p>
+                    <div class="cta-row">
+                        <a href="#tours" class="btn btn-primary">Start Exploring →</a>
+                        <a href="#intention" class="btn btn-ghost">Travel with Intention</a>
+                    </div>
+                </div>
+                <aside class="hero-card reveal">
+                    <h3>Build your itinerary around…</h3>
+                    <div class="pill-row">
+                        <span class="pill">🥖 Food tours</span>
+                        <span class="pill">👩‍🍳 Cooking classes</span>
+                        <span class="pill">🍷 Wine cellars</span>
+                        <span class="pill">🎉 Festivals</span>
+                        <span class="pill">🛍️ Markets</span>
+                        <span class="pill">🏡 Gastro stays</span>
+                        <span class="pill">🧀 Ingredient trails</span>
+                        <span class="pill">🌱 Plant-forward</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- TOURS -->
+        <section id="tours">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">Start Here</div>
+                    <h2>Read the City Through Its Plates</h2>
+                    <p>A guided food tour is the fastest way to get oriented in a new city's food scene.</p>
+                </div>
+                <div class="prose reveal">
+                    <p>A good guide will lead you through covered markets, family-run shops, and tucked-away spots that
+                        no algorithm would surface, narrating the why behind each stop along the way. You learn which
+                        neighborhoods grew up around which dishes, which family has been making the same pastry since
+                        the 1930s, and which streets locals actually go to when they want to eat well.</p>
+                    <p>The best food tours mix street snacks with classic sit-downs and slip in a tasting or two that
+                        the casual visitor would never find on their own. Two or three hours later, you walk away with a
+                        working map of the city's flavors — and a much better idea of where to come back for dinner.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COOKING SPLIT -->
+        <section id="cooking" style="background:linear-gradient(180deg,transparent,rgba(35,19,58,.4),transparent)">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">Get Your Hands Floured</div>
+                    <h2>Cooking Classes &amp; Farm Visits</h2>
+                    <p>Turn travel from a spectator sport into a participatory one.</p>
+                </div>
+                <div class="split">
+                    <article class="split-card reveal">
+                        <div class="icon"
+                            style="width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(136,60,240,.25),rgba(123,92,255,.15));border:1px solid var(--border2);margin-bottom:18px;font-size:1.4rem">
+                            👵</div>
+                        <h3>Recipes from Family Kitchens</h3>
+                        <p>The best cooking classes are taught in someone's actual kitchen, focus on dishes that have
+                            been in the family for generations, and teach you the practical fundamentals — knife work,
+                            reading the season, knowing when something is done by feel instead of by timer.</p>
+                    </article>
+                    <article class="split-card reveal">
+                        <div class="icon"
+                            style="width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(136,60,240,.25),rgba(123,92,255,.15));border:1px solid var(--border2);margin-bottom:18px;font-size:1.4rem">
+                            🌾</div>
+                        <h3>Meet the Producers</h3>
+                        <p>Tour a small dairy and watch cheese being turned by hand. Walk a vineyard with the winemaker.
+                            Sit at an olive press during harvest. Once you see how a region's geography shapes its
+                            ingredients, you start tasting differently — everywhere else you go.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DRINK + FESTIVAL TABS -->
+        <section id="drink">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">Beyond the Plate</div>
+                    <h2>Drink, Festivals &amp; Stays</h2>
+                    <p>Three more layers that turn a trip into something you'll remember for years.</p>
+                </div>
+                <div class="tabs reveal">
+                    <div class="tab-list" role="tablist">
+                        <button class="tab-btn active" data-tab="t1">🍷 Drink Local</button>
+                        <button class="tab-btn" data-tab="t2">🎉 Food Festivals</button>
+                        <button class="tab-btn" data-tab="t3">🏨 Gastronomic Stays</button>
+                    </div>
+                    <div class="tab-panel active" id="t1">
+                        <h3>Wine, aperitivo &amp; regional pairings</h3>
+                        <p>Cellar tastings give you the chance to try wines that never make it past the regional border,
+                            often poured by the person who made them. But the more relaxed traditions matter just as
+                            much: an early-evening aperitivo in Italy, a chilled glass of vinho verde in coastal
+                            Portugal, a sake flight in a small Japanese izakaya.</p>
+                        <p>The trick is balance. One serious tasting per day is plenty. The rest of the trip should be
+                            casual, curious, and slow enough to enjoy what is actually in front of you.</p>
+                    </div>
+                    <div class="tab-panel" id="t2">
+                        <h3>Time your trip around a festival</h3>
+                        <p>Truffle fairs in Piedmont, chili festivals in New Mexico, oyster celebrations in Galicia,
+                            grape harvests across half of Europe — these events bring together small producers, regional
+                            chefs, and entire communities for a few days of unfiltered pride.</p>
+                        <p>You taste things you'd never order off a menu and meet people who have spent their lives on a
+                            single ingredient. Booking a trip to overlap with one is one of the highest-return moves in
+                            food travel.</p>
+                    </div>
+                    <div class="tab-panel" id="t3">
+                        <h3>Sleep where the food is</h3>
+                        <p>Look for properties that offer cooking demonstrations, themed tasting menus, wine pairing
+                            workshops, or rooms that overlook a working farm. Breakfast becomes a lesson in regional
+                            baking. Dinner becomes a curated walk through what is in season.</p>
+                        <p>The whole experience becomes more cohesive than a string of unrelated reservations would ever
+                            be.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKETS + TRAILS CARDS -->
+        <section id="markets" style="background:linear-gradient(180deg,transparent,rgba(35,19,58,.4),transparent)">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">On the Ground</div>
+                    <h2>Markets, Trails &amp; Time Machines</h2>
+                    <p>Where the real food — and the real stories — live.</p>
+                </div>
+                <div class="cards">
+                    <article class="card reveal">
+                        <div class="icon">🛒</div>
+                        <h3>Wander the Markets</h3>
+                        <p>Walk slowly. Buy small. Try the thing being pulled fresh off the grill. Vendors are often the
+                            keepers of techniques passed down for generations.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">🧭</div>
+                        <h3>Follow a Thematic Trail</h3>
+                        <p>A cheese route through France. A spice trail through Kerala. A coffee circuit in Colombia.
+                            Following one ingredient takes you to smaller roads and smaller towns — where real
+                            discoveries hide.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">🏛️</div>
+                        <h3>Eat Through History</h3>
+                        <p>Markets that have operated on the same square for 500 years. Dining rooms that have served
+                            the same dish since before electric lights. Time machines disguised as restaurants.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">✨</div>
+                        <h3>Try the New Wave</h3>
+                        <p>Modern fusion done well isn't a gimmick — it's classically trained chefs producing something
+                            that could only exist in this place at this time.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">👀</div>
+                        <h3>Eat Where You See the Kitchen</h3>
+                        <p>Open kitchens, chef's counters, and communal tables turn dinner from a transaction into a
+                            conversation. The best way to learn how a cuisine actually functions.</p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="icon">🔪</div>
+                        <h3>Honor the Tools</h3>
+                        <p>Knife makers, copper pot smiths, ceramic studios, salt harvesters. Visiting their workshops
+                            adds an unexpected dimension to a food-focused trip.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTENTION TIMELINE -->
+        <section id="intention">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">Travel with Intention</div>
+                    <h2>Sustainable, Plant-Forward, Locally Sourced</h2>
+                    <p>Your spending shapes the food culture you came to enjoy.</p>
+                </div>
+                <div class="timeline reveal">
+                    <div class="tl-item">
+                        <h3>Spend Where It Matters</h3>
+                        <p>Choosing local, family-run places over chains and big tourist operators sends money directly
+                            into the community whose food you came to enjoy — and helps preserve techniques that might
+                            otherwise quietly disappear.</p>
+                    </div>
+                    <div class="tl-item">
+                        <h3>Look for Ethical &amp; Seasonal Choices</h3>
+                        <p>Organic, fair-trade, and regenerative-farming certifications make it easier to travel in a
+                            way that aligns with the values you'd apply at home. Eating in season isn't preachy — it's
+                            just paying attention.</p>
+                    </div>
+                    <div class="tl-item">
+                        <h3>Discover the Plant-Based Side</h3>
+                        <p>Indian thalis, Levantine mezze, Japanese shojin ryori, Mexican vegetable stews, Italian
+                            regional cooking — old traditions that happen to suit how a lot of modern travelers want to
+                            eat.</p>
+                    </div>
+                    <div class="tl-item">
+                        <h3>Connect Through the Kitchen</h3>
+                        <p>Stirring a pot beside someone, watching how they shape dough, helping carry plates to a
+                            long-shared table — moments that turn a trip into a memory you carry for years.</p>
+                    </div>
+                    <div class="tl-item">
+                        <h3>Use Tech to Plan Smarter</h3>
+                        <p>Reservation tools, virtual cooking classes, translation apps. Use the tools that get you to
+                            the table faster and let you focus on what's actually on it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" style="background:linear-gradient(180deg,transparent,rgba(35,19,58,.4),transparent)">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="eyebrow">FAQ</div>
+                    <h2>Common Questions</h2>
+                </div>
+                <div class="acc reveal">
+                    <div class="acc-item">
+                        <button class="acc-q">How long should a culinary trip be?<span class="plus">+</span></button>
+                        <div class="acc-a">
+                            <div class="acc-a-inner">A focused 5–7 days lets you balance one or two cooking classes, a
+                                market morning, a producer visit, and plenty of unhurried meals — without burning out on
+                                rich food and tastings.</div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-q">Do I need to know the language?<span class="plus">+</span></button>
+                        <div class="acc-a">
+                            <div class="acc-a-inner">Helpful but not essential. A handful of polite phrases and a
+                                translation app on your phone go a long way at markets and small family restaurants.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-q">Should I pre-book restaurants?<span class="plus">+</span></button>
+                        <div class="acc-a">
+                            <div class="acc-a-inner">Pre-book the few highly-rated places you really want to try. Leave
+                                most evenings open — the best meals often happen in spots you stumble into after a
+                                market visit or recommendation.</div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-q">Is culinary travel expensive?<span class="plus">+</span></button>
+                        <div class="acc-a">
+                            <div class="acc-a-inner">It can be, but doesn't have to. Markets, street food, and
+                                family-run trattorias are some of the cheapest — and most rewarding — meals you'll have.
+                                Splurge on one or two anchor experiences instead of every dinner.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="bring-home">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2>Bring It All Home</h2>
+                    <p>Plan with curiosity, leave room for the unplanned meal, and travel with respect for the producers
+                        and traditions that made the trip worth taking. Build the itinerary around the food — the rest
+                        will fall into place around it.</p>
+                    <div class="cta-row" style="justify-content:center">
+                        <a href="#tours" class="btn btn-primary">Plan Your Next Trip →</a>
+                        <a href="#top" class="btn btn-ghost">Back to Top</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="foot-grid">
+                <div>
+                    <div class="logo" style="margin-bottom:14px"><span class="logo-mark">🍴</span> Tastebound</div>
+                    <p style="font-size:.92rem;max-width:340px">Travel guides for people who plan their trips around the
+                        table.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#tours">Food Tours</a></li>
+                        <li><a href="#cooking">Cooking Classes</a></li>
+                        <li><a href="#drink">Drink Local</a></li>
+                        <li><a href="#markets">Markets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#intention">Sustainable Travel</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#bring-home">Plan a Trip</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copy">© <span id="yr"></span> Tastebound · Built for travelers who eat first.</div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+        }));
+
+        document.querySelectorAll('.acc-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const open = item.classList.contains('open');
+                document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+                if (!open) item.classList.add('open');
+            });
+        });
+
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        document.getElementById('yr').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
