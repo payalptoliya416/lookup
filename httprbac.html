@@ -1026,10 +1026,17 @@
                     <p>Explore our growing library of mortgage and finance guides, or subscribe for monthly insights.
                         The more you understand the system behind your home loan, the more leverage you have inside it.
                     </p>
-                    <div class="cta-row" style="justify-content:center">
-                        <a href="#top" class="btn btn-primary">Subscribe →</a>
-                        <a href="#journey" class="btn btn-ghost">Browse Guides</a>
-                    </div>
+                   <div class="cta-row" style="justify-content:center">
+
+    <button class="btn btn-primary" id="subscribeBtn">
+        Subscribe →
+    </button>
+
+    <a href="#journey" class="btn btn-ghost">
+        Browse Guides
+    </a>
+
+</div>
                 </div>
             </div>
         </section>
@@ -1065,7 +1072,22 @@
             <div class="copy">© <span id="yr"></span> MBS Insider · Built for curious homeowners &amp; investors.</div>
         </div>
     </footer>
+<script>
 
+    const subscribeBtn =
+        document.getElementById('subscribeBtn');
+
+    subscribeBtn.addEventListener('click', () => {
+
+        subscribeBtn.innerHTML = 'Subscribed ✓';
+
+        subscribeBtn.style.opacity = '0.85';
+
+        subscribeBtn.style.pointerEvents = 'none';
+
+    });
+
+</script>
     <script>
         // Mobile menu
         const menuBtn = document.getElementById('menuBtn');

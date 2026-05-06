@@ -1127,6 +1127,11 @@
             z-index: 2;
             box-shadow: var(--glow);
             animation: modalUp .35s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
         }
 
         @keyframes modalUp {
@@ -1240,6 +1245,14 @@
         }
 
         @media(max-width:900px) {
+            .contact-modal {
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+
+            .modal-box {
+                margin: 40px 0;
+            }
 
             .modal-content {
                 grid-template-columns: 1fr;
@@ -1271,11 +1284,11 @@
             <li><a href="#faq">FAQ</a></li>
         </ul>
         <div class="nav-actions">
-            <a href="#how" class="btn btn-ghost">
+            <a href="#" class="open-demo-modal btn btn-primary">
                 Book Demo
             </a>
 
-            <a href="#" class="open-demo-modal btn btn-primary">
+            <a href="#" class="open-scan-modal btn btn-ghost">
                 Free Scan →
             </a>
         </div>
@@ -1319,7 +1332,7 @@
                     Start Your Free Audit Scan →
                 </a>
 
-                <a href="#how" class="btn btn-ghost btn-lg">
+                <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
                     Book a 15-Minute Demo
                 </a>
             </div>
@@ -1728,7 +1741,7 @@
                         Start Your Free Audit Scan →
                     </a>
 
-                    <a href="#how" class="btn btn-ghost btn-lg">
+                    <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
                         Talk to an Expert
                     </a>
                 </div>
@@ -1830,7 +1843,7 @@
                     <a href="#integrations">Integrations</a>
                     <a href="#testimonials">Testimonials</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#final">Contact</a>
+                    <a href="#contactModal">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">

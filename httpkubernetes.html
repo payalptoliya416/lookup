@@ -969,6 +969,25 @@
             }
 
         }
+
+        .mobile-buttons {
+            display: none;
+        }
+
+        @media (max-width:992px) {
+
+            .mobile-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                margin-top: 10px;
+            }
+
+            .mobile-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -976,9 +995,12 @@
 
     <header>
         <div class="container nav">
+
             <a href="#top" class="logo">Kubernetes.ms</a>
+
             <nav>
                 <ul class="nav-links" id="navLinks">
+
                     <li><a href="#services">Services</a></li>
                     <li><a href="#platform">Platform</a></li>
                     <li><a href="#audience">Industries</a></li>
@@ -986,30 +1008,36 @@
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#footer">About</a></li>
 
-                    <li>
-                     <div class="nav-cta">
+                    <!-- MOBILE BUTTONS -->
+                    <li class="mobile-buttons">
+                        <a href="#" class="btn btn-ghost open-kube-modal">
+                            Sign In
+                        </a>
+                        <a href="#pricing" class="btn btn-primary">
+                            Pricing
+                        </a>
+                    </li>
 
-    <a href="#" class="btn btn-ghost open-kube-modal">
-        Sign In
-    </a>
-
-    <a href="#" class="btn btn-primary open-kube-modal">
-        Book a Demo
-    </a>
-
-    <button class="menu-toggle"
-    id="menuToggle"
-    aria-label="Toggle menu">
-        ☰
-    </button>
-
-</div>
                 </ul>
             </nav>
-            <div clahref="#" class="open-kube-modal" class="btn btn-ghost">Sign In</a>
-                <a href="#cta" class="btn btn-primary">Book a Demo</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+
+            <!-- DESKTOP BUTTONS -->
+            <div class="nav-cta">
+
+                <a href="#" class="btn btn-ghost open-kube-modal">
+                    Sign In
+                </a>
+
+                <a href="#cta" class="btn btn-primary">
+                    Book a Demo
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+
             </div>
+
         </div>
     </header>
 
@@ -1022,7 +1050,9 @@
                 containers without the on-call rotation. Faster deployments, lower cloud bills, and zero 3 a.m. pages.
             </p>
             <div class="hero-cta">
-                <a href="#cta" class="btn btn-primary">Book a Free Architecture Review</a>
+                <a href="#services" class="btn btn-primary">
+                    Explore Services
+                </a>
                 <a href="#how" class="link-arrow">See how it works →</a>
             </div>
             <p class="trust">Trusted by engineering teams scaling from seed to series D. SOC 2 ready. Cloud-agnostic.
@@ -1160,73 +1190,243 @@
             <p>Book a free architecture review. Sixty minutes, no pitch deck — just a real conversation about what's
                 working and what isn't in your Kubernetes setup.</p>
             <div class="cta-buttons">
-                <a href="#cta" class="btn btn-primary">Book Your Free Review</a>
-                <a href="#footer" class="btn btn-ghost">Talk to Engineering</a>
+
+                <!-- BOOK REVIEW -->
+                <a href="#pricing" class="btn btn-primary">
+                    View Pricing Plans
+                </a>
+
+                <!-- TALK TO ENGINEERING -->
+                <a href="#" class="btn btn-ghost open-kube-modal">
+                    Talk to Engineering
+                </a>
+
             </div>
         </div>
     </section>
+<footer id="footer">
 
-    <!-- FOOTER -->
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#top" class="logo">Kubernetes.ms</a>
-                    <p>Production-grade Kubernetes, fully managed. We design, operate, and scale clusters so your team
-                        ships product.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#services">Managed Operations</a></li>
-                        <li><a href="#services">Platform Engineering</a></li>
-                        <li><a href="#services">Security & Compliance</a></li>
-                        <li><a href="#services">FinOps</a></li>
-                        <li><a href="#services">Migration</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="#audience">Startups</a></li>
-                        <li><a href="#audience">Mid-Market</a></li>
-                        <li><a href="#audience">Enterprise</a></li>
-                        <li><a href="#audience">Fintech</a></li>
-                        <li><a href="#audience">Healthtech</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#resources">Blog</a></li>
-                        <li><a href="#resources">Playbooks</a></li>
-                        <li><a href="#resources">Webinars</a></li>
-                        <li><a href="#resources">Documentation</a></li>
-                        <li><a href="#resources">Status Page</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#platform">About</a></li>
-                        <li><a href="#cta">Careers</a></li>
-                        <li><a href="#proof">Customers</a></li>
-                        <li><a href="#cta">Contact</a></li>
-                        <li><a href="#services">Partners</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="#top" class="logo">
+                    Kubernetes.ms
+                </a>
+
+                <p>
+                    Production-grade Kubernetes, fully managed.
+                    We design, operate, and scale clusters so your team ships product.
+                </p>
+
             </div>
-            <div class="footer-bottom">
-                <span>© 2026 Kubernetes.ms — All rights reserved.</span>
-                <span><a href="#footer">Privacy</a> · <a href="#footer">Terms</a> · <a href="#footer">Security</a> · <a
-                        href="#footer">Cookies</a></span>
+
+            <!-- PRODUCT -->
+
+            <div class="footer-col">
+
+                <h4>Product</h4>
+
+                <ul>
+                    <li><a href="#services">Managed Operations</a></li>
+                    <li><a href="#platform">Platform Engineering</a></li>
+                    <li><a href="#proof">Security & Compliance</a></li>
+                    <li><a href="#pricing">FinOps</a></li>
+                    <li><a href="#how">Migration</a></li>
+                </ul>
+
             </div>
+
+            <!-- SOLUTIONS -->
+
+            <div class="footer-col">
+
+                <h4>Solutions</h4>
+
+                <ul>
+                    <li><a href="#audience">Startups</a></li>
+                    <li><a href="#audience">Mid-Market</a></li>
+                    <li><a href="#proof">Enterprise</a></li>
+                    <li><a href="#platform">Fintech</a></li>
+                    <li><a href="#services">Healthtech</a></li>
+                    <li><a href="#pricing">E-commerce</a></li>
+                </ul>
+
+            </div>
+
+            <!-- RESOURCES -->
+
+            <div class="footer-col">
+
+                <h4>Resources</h4>
+
+                <ul>
+                    <li><a href="#resources">Blog</a></li>
+                    <li><a href="#resources">Playbooks</a></li>
+                    <li><a href="#resources">Webinars</a></li>
+                    <li><a href="#faq">Documentation</a></li>
+                    <li><a href="#platform">Open Source</a></li>
+                    <li><a href="#proof">Status Page</a></li>
+                </ul>
+
+            </div>
+
+            <!-- COMPANY -->
+
+            <div class="footer-col">
+
+                <h4>Company</h4>
+
+                <ul>
+                    <li><a href="#platform">About</a></li>
+                    <li><a href="#cta">Careers</a></li>
+                    <li><a href="#proof">Customers</a></li>
+
+                    <li>
+                        <a href="#" class="open-kube-modal">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li><a href="#services">Partners</a></li>
+
+                </ul>
+
+            </div>
+
         </div>
-        <p class="disclaimer">Kubernetes is a registered trademark of The Linux Foundation. Kubernetes.ms is an
-            independent managed services provider and is not affiliated with, endorsed by, or sponsored by The Linux
-            Foundation, Google, or the CNCF.</p>
-    </footer>
 
+        <!-- BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Kubernetes.ms — All rights reserved.
+            </span>
+
+            <span>
+                <a href="#top">Privacy Policy</a> ·
+                <a href="#faq">Terms of Service</a> ·
+                <a href="#platform">Security</a> ·
+                <a href="#resources">Cookie Settings</a>
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- DISCLAIMER -->
+
+    <p class="disclaimer">
+
+        Kubernetes is a registered trademark of The Linux Foundation.
+        Kubernetes.ms is an independent managed services provider and is not affiliated with,
+        endorsed by, or sponsored by The Linux Foundation, Google,
+        or the Cloud Native Computing Foundation.
+
+    </p>
+
+</footer>
+    <!-- KUBE MODAL -->
+
+    <div class="kube-modal" id="kubeModal">
+
+        <div class="kube-overlay" id="kubeOverlay"></div>
+
+        <div class="kube-box">
+
+            <button class="kube-close" id="kubeClose">
+                ✕
+            </button>
+
+            <div class="kube-content">
+
+                <!-- LEFT -->
+
+                <div class="kube-left">
+
+                    <span class="kube-tag">
+                        FREE CONSULTATION
+                    </span>
+
+                    <h2>
+                        Let’s Scale Your Kubernetes Infrastructure
+                    </h2>
+
+                    <p>
+                        Talk directly with our platform engineers about cluster
+                        operations, cloud optimization, migrations, security,
+                        and production reliability.
+                    </p>
+
+                    <div class="kube-points">
+                        <span>✔ 24/7 Managed Kubernetes Support</span>
+                        <span>✔ Cloud Cost Optimization</span>
+                        <span>✔ Security & Compliance Ready</span>
+                        <span>✔ Multi-Cloud & DevOps Experts</span>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="kube-right">
+
+                    <form>
+
+                        <div class="kube-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your full name">
+                        </div>
+
+                        <div class="kube-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+
+                        <div class="kube-group">
+                            <label>Company Name</label>
+                            <input type="text" placeholder="Your company">
+                        </div>
+
+                        <div class="kube-group">
+                            <label>Service Interested In</label>
+
+                            <select>
+                                <option>Managed Kubernetes</option>
+                                <option>DevOps Consulting</option>
+                                <option>Cloud Migration</option>
+                                <option>Security & Compliance</option>
+                                <option>Platform Engineering</option>
+                            </select>
+                        </div>
+
+                        <div class="kube-group">
+                            <label>Project Details</label>
+
+                            <textarea rows="5"
+                                placeholder="Tell us about your infrastructure or requirements"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary kube-submit">
+
+                            Schedule Consultation
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
     <script>
         const values = [
             { t: "Ship Faster", d: "Pre-hardened cluster blueprints, automated CI/CD pipelines, and GitOps workflows out of the box. Most teams cut deployment time by 60% in the first 30 days.", i: "⚡" },
