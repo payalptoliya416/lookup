@@ -957,6 +957,358 @@
         grid-template-columns: 1fr;
       }
     }
+    /* TRAVEL MODAL */
+
+.travel-modal{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.travel-modal.active{
+  display:flex;
+}
+
+.travel-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+}
+
+.travel-box{
+  position:relative;
+  width:100%;
+  max-width:1050px;
+  max-height:90vh;
+  overflow-y:auto;
+  background:var(--card);
+  border:1px solid var(--border2);
+  border-radius:24px;
+  z-index:2;
+  box-shadow:var(--glow);
+
+  scrollbar-width:thin;
+  scrollbar-color:var(--accent) transparent;
+}
+
+.travel-box::-webkit-scrollbar{
+  width:6px;
+}
+
+.travel-box::-webkit-scrollbar-thumb{
+  background:var(--accent);
+  border-radius:20px;
+}
+
+.travel-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.travel-left{
+  padding:60px;
+  background:
+  radial-gradient(circle at top right,
+  rgba(136,60,240,.25),
+  transparent 60%),
+  var(--bg2);
+}
+
+.travel-right{
+  padding:60px;
+}
+
+.travel-tag{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:100px;
+  border:1px solid var(--border2);
+  background:rgba(136,60,240,.12);
+  color:var(--accent3);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+.travel-left h2{
+  font-size:42px;
+  margin-bottom:18px;
+}
+
+.travel-left p{
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.travel-points{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  color:var(--accent3);
+}
+
+.travel-group{
+  margin-bottom:20px;
+}
+
+.travel-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.travel-group input,
+.travel-group select,
+.travel-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  color:var(--text);
+  outline:none;
+}
+
+.travel-submit{
+  width:100%;
+}
+
+.travel-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  color:#fff;
+  cursor:pointer;
+  font-size:18px;
+}
+
+@media(max-width:900px){
+
+  .travel-modal{
+    padding:12px;
+    align-items:flex-start;
+    overflow-y:auto;
+  }
+
+  .travel-box{
+    margin:40px 0;
+    max-height:none;
+  }
+
+  .travel-content{
+    grid-template-columns:1fr;
+  }
+
+  .travel-left,
+  .travel-right{
+    padding:28px;
+  }
+
+  .travel-left h2{
+    font-size:32px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .travel-left,
+  .travel-right{
+    padding:22px;
+  }
+
+  .travel-left h2{
+    font-size:26px;
+  }
+
+}
+/* TRAVEL MODAL */
+
+.travel-modal{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.travel-modal.active{
+  display:flex;
+}
+
+.travel-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+}
+
+.travel-box{
+  position:relative;
+  width:100%;
+  max-width:1050px;
+  max-height:90vh;
+  overflow-y:auto;
+  background:var(--card);
+  border:1px solid var(--border2);
+  border-radius:24px;
+  z-index:2;
+  box-shadow:var(--glow);
+
+  scrollbar-width:thin;
+  scrollbar-color:var(--accent) transparent;
+}
+
+.travel-box::-webkit-scrollbar{
+  width:6px;
+}
+
+.travel-box::-webkit-scrollbar-thumb{
+  background:var(--accent);
+  border-radius:20px;
+}
+
+.travel-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.travel-left{
+  padding:60px;
+  background:
+  radial-gradient(circle at top right,
+  rgba(136,60,240,.25),
+  transparent 60%),
+  var(--bg2);
+}
+
+.travel-right{
+  padding:60px;
+}
+
+.travel-tag{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:100px;
+  border:1px solid var(--border2);
+  background:rgba(136,60,240,.12);
+  color:var(--accent3);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+.travel-left h2{
+  font-size:42px;
+  margin-bottom:18px;
+}
+
+.travel-left p{
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.travel-points{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  color:var(--accent3);
+}
+
+.travel-group{
+  margin-bottom:20px;
+}
+
+.travel-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.travel-group input,
+.travel-group select,
+.travel-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  color:var(--text);
+  outline:none;
+}
+
+.travel-submit{
+  width:100%;
+}
+
+.travel-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  color:#fff;
+  cursor:pointer;
+  font-size:18px;
+}
+
+@media(max-width:900px){
+
+  .travel-modal{
+    padding:12px;
+    align-items:flex-start;
+    overflow-y:auto;
+  }
+
+  .travel-box{
+    margin:40px 0;
+    max-height:none;
+  }
+
+  .travel-content{
+    grid-template-columns:1fr;
+  }
+
+  .travel-left,
+  .travel-right{
+    padding:28px;
+  }
+
+  .travel-left h2{
+    font-size:32px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .travel-left,
+  .travel-right{
+    padding:22px;
+  }
+
+  .travel-left h2{
+    font-size:26px;
+  }
+
+}
   </style>
 </head>
 
@@ -979,7 +1331,9 @@
 
       <!-- RIGHT -->
       <div class="nav-right">
-        <a href="#steps" class="nav-cta">Get Started</a>
+       <a href="#" class="nav-cta open-travel-modal">
+  Get Started
+</a>
         <!-- MOBILE -->
         <button class="hamburger" id="hamburger">
           <span></span><span></span><span></span>
@@ -1010,7 +1364,7 @@
         <span>~8 min read</span>
       </div>
       <div class="hero-btns">
-        <a href="#steps" class="btn-primary">Read the Playbook</a>
+        <a href="#" class="btn-primary open-travel-modal">Read the Playbook</a>
         <a href="#tools" class="btn-outline">Explore Tools</a>
       </div>
     </div>
@@ -1363,7 +1717,9 @@
         <span class="step-tag">Local Knowledge</span>
         <span class="step-tag">Stay Flexible</span>
       </div>
-      <a href="#steps" class="btn-primary">Re-read the Playbook</a>
+      <a href="#" class="btn-primary open-travel-modal">
+  Re-read the Playbook
+</a>
     </div>
   </section>
 
@@ -1396,6 +1752,142 @@
 
     </div>
   </footer>
+  <!-- TRAVEL MODAL -->
+
+<div class="travel-modal" id="travelModal">
+
+  <div class="travel-overlay" id="travelOverlay"></div>
+
+  <div class="travel-box">
+
+    <button class="travel-close" id="travelClose">
+      ✕
+    </button>
+
+    <div class="travel-content">
+
+      <div class="travel-left">
+
+        <span class="travel-tag">
+          Travel.Guide
+        </span>
+
+        <h2>
+          Plan Your Perfect Stay
+        </h2>
+
+        <p>
+          Get personalized hotel recommendations,
+          smarter booking timing,
+          and travel planning insights tailored to your trip.
+        </p>
+
+        <div class="travel-points">
+          <div>✓ Smart neighborhood selection</div>
+          <div>✓ Price tracking guidance</div>
+          <div>✓ Better booking timing</div>
+          <div>✓ Travel planning checklist</div>
+        </div>
+
+      </div>
+
+      <div class="travel-right">
+
+        <form>
+
+          <div class="travel-group">
+            <label>Destination</label>
+            <input type="text"
+            placeholder="Paris, Tokyo, New York...">
+          </div>
+
+          <div class="travel-group">
+            <label>Travel Dates</label>
+            <input type="text"
+            placeholder="May 20 - May 28">
+          </div>
+
+          <div class="travel-group">
+            <label>Travel Type</label>
+
+            <select>
+              <option>Solo Travel</option>
+              <option>Family Trip</option>
+              <option>Business Trip</option>
+              <option>Luxury Stay</option>
+              <option>Budget Travel</option>
+            </select>
+          </div>
+
+          <div class="travel-group">
+            <label>Trip Notes</label>
+
+            <textarea rows="4"
+            placeholder="Conference, sightseeing, food tour, beach vacation..."></textarea>
+          </div>
+
+          <button type="submit"
+          class="btn-primary travel-submit">
+            Start Planning →
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<script>
+
+const travelModal =
+document.getElementById('travelModal');
+
+const travelClose =
+document.getElementById('travelClose');
+
+const travelOverlay =
+document.getElementById('travelOverlay');
+
+document
+.querySelectorAll('.open-travel-modal')
+.forEach(btn => {
+
+  btn.addEventListener('click', (e) => {
+
+    e.preventDefault();
+
+    travelModal.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+
+  });
+
+});
+
+function closeTravelModal(){
+
+  travelModal.classList.remove('active');
+
+  document.body.style.overflow = '';
+
+}
+
+travelClose.addEventListener('click', closeTravelModal);
+
+travelOverlay.addEventListener('click', closeTravelModal);
+
+document.addEventListener('keydown', (e)=>{
+
+  if(e.key === 'Escape'){
+    closeTravelModal();
+  }
+
+});
+
+</script>
   <script>
     // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburger');
