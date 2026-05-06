@@ -496,6 +496,192 @@
                 margin-top: .75rem
             }
         }
+        /* MODAL */
+
+.trend-modal{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.trend-modal.active{
+    display:flex;
+}
+
+.trend-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+}
+
+.trend-box{
+    position:relative;
+    width:100%;
+    max-width:1050px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:var(--card);
+    border:1px solid var(--border2);
+    border-radius:24px;
+    z-index:2;
+    box-shadow:var(--glow);
+    animation:modalUp .35s ease;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+.trend-box::-webkit-scrollbar{
+    width:6px;
+}
+
+.trend-box::-webkit-scrollbar-thumb{
+    background:var(--accent);
+    border-radius:20px;
+}
+
+.trend-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.trend-left{
+    padding:60px;
+    background:
+    radial-gradient(circle at top right,
+    rgba(136,60,240,.25),
+    transparent 60%),
+    var(--bg2);
+}
+
+.trend-right{
+    padding:60px;
+}
+
+.trend-tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:100px;
+    border:1px solid var(--border2);
+    background:rgba(136,60,240,.12);
+    color:var(--accent3);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.trend-left h2{
+    font-size:42px;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.trend-left p{
+    color:var(--muted);
+    margin-bottom:28px;
+}
+
+.trend-points{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    color:var(--accent3);
+}
+
+.trend-group{
+    margin-bottom:20px;
+}
+
+.trend-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.trend-group input,
+.trend-group select{
+    width:100%;
+    padding:14px 16px;
+    border-radius:12px;
+    background:var(--bg2);
+    border:1px solid var(--border);
+    color:var(--text);
+    outline:none;
+}
+
+.trend-submit{
+    width:100%;
+}
+
+.trend-close{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--bg2);
+    color:var(--text);
+    cursor:pointer;
+    font-size:18px;
+    z-index:5;
+}
+
+@media(max-width:900px){
+
+    .trend-modal{
+        padding:12px;
+        align-items:flex-start;
+        overflow-y:auto;
+    }
+
+    .trend-box{
+        margin:40px 0;
+        max-height:none;
+        border-radius:20px;
+    }
+
+    .trend-content{
+        grid-template-columns:1fr;
+    }
+
+    .trend-left,
+    .trend-right{
+        padding:28px;
+    }
+
+    .trend-left h2{
+        font-size:32px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .trend-left,
+    .trend-right{
+        padding:22px;
+    }
+
+    .trend-left h2{
+        font-size:26px;
+    }
+
+    .trend-close{
+        top:14px;
+        right:14px;
+        width:38px;
+        height:38px;
+    }
+
+}
     </style>
 </head>
 
@@ -521,7 +707,7 @@
                 <h1>10 Tech Shifts Quietly <span>Rewiring</span> Our Digital Lives</h1>
                 <p>From smarter machines to virtual workspaces and rewritten money rules — a guided tour of the
                     technologies that are no longer optional in shaping how we create, work, and connect.</p>
-                <a href="#trends" class="btn">Explore Trends</a>
+                <a href="#" class="btn open-modal">Explore Trends</a>
                 <a href="#insights" class="btn outline">Read Insights</a>
             </div>
         </section>
@@ -614,7 +800,7 @@
                 <h2>Keep Up with What's Next</h2>
                 <p>The question isn't which trend will win — it's which combination fits the problem you're trying to
                     solve. Bookmark this page and share it with a teammate.</p>
-                <a href="#" class="btn">Explore Technology Trends</a>
+                <a href="#" class="btn open-modal">Explore Technology Trends</a>
             </div>
         </section>
     </main>
@@ -622,15 +808,92 @@
     <footer>
         <div class="footer-inner">
             <ul class="footer-links">
-                <li><a href="#">Technology Trends</a></li>
-                <li><a href="#">Personal Finance</a></li>
-                <li><a href="#">Business & Entrepreneurship</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#trends">Technology Trends</a></li>
+                <li><a href="#insights">Personal Finance</a></li>
+                <li><a href="#faq">Business & Entrepreneurship</a></li>
+                <li><a href="#intro">About</a></li>
             </ul>
             <p class="copy">© 2026 TechShifts · Crafted for curious minds</p>
         </div>
     </footer>
+<!-- MODAL -->
 
+<div class="trend-modal" id="trendModal">
+
+    <div class="trend-overlay" id="trendOverlay"></div>
+
+    <div class="trend-box">
+
+        <button class="trend-close" id="trendClose">
+            ✕
+        </button>
+
+        <div class="trend-content">
+
+            <div class="trend-left">
+
+                <span class="trend-tag">
+                    TechShifts Insights
+                </span>
+
+                <h2>
+                    Stay Ahead of Emerging Technology
+                </h2>
+
+                <p>
+                    Subscribe to curated weekly insights on AI,
+                    blockchain, creator economy, AR/VR,
+                    and future digital culture.
+                </p>
+
+                <div class="trend-points">
+                    <div>✓ Weekly trend reports</div>
+                    <div>✓ AI & startup insights</div>
+                    <div>✓ Future tech breakdowns</div>
+                    <div>✓ Actionable business ideas</div>
+                </div>
+
+            </div>
+
+            <div class="trend-right">
+
+                <form class="trend-form">
+
+                    <div class="trend-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your name">
+                    </div>
+
+                    <div class="trend-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@example.com">
+                    </div>
+
+                    <div class="trend-group">
+                        <label>Interest Area</label>
+
+                        <select>
+                            <option>Artificial Intelligence</option>
+                            <option>Blockchain</option>
+                            <option>AR / VR</option>
+                            <option>Creator Economy</option>
+                            <option>Future of Work</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn trend-submit">
+                        Subscribe →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
     <script>
         const trends = [
             ["Smart Machines Move from Helper to Partner", "AI now sits at the center of decisions in healthcare, finance, and supply planning. The expectation that an app should anticipate, summarize, and act on your behalf is the new baseline."],
@@ -674,6 +937,54 @@
             });
         });
     </script>
+    <script>
+
+const trendModal =
+document.getElementById('trendModal');
+
+const trendClose =
+document.getElementById('trendClose');
+
+const trendOverlay =
+document.getElementById('trendOverlay');
+
+document
+.querySelectorAll('.open-modal')
+.forEach(btn => {
+
+    btn.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        trendModal.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+
+    });
+
+});
+
+function closeTrendModal(){
+
+    trendModal.classList.remove('active');
+
+    document.body.style.overflow = '';
+
+}
+
+trendClose.addEventListener('click', closeTrendModal);
+
+trendOverlay.addEventListener('click', closeTrendModal);
+
+document.addEventListener('keydown', (e)=>{
+
+    if(e.key === 'Escape'){
+        closeTrendModal();
+    }
+
+});
+
+</script>
 </body>
 
 </html>

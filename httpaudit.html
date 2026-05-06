@@ -1092,6 +1092,168 @@
                 flex-direction: column
             }
         }
+
+        /* MODAL */
+
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .contact-modal.active {
+            display: flex;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-box {
+            position: relative;
+            width: 100%;
+            max-width: 1050px;
+            background: var(--card);
+            border: 1px solid var(--border2);
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: var(--glow);
+            animation: modalUp .35s ease;
+        }
+
+        @keyframes modalUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .modal-left {
+            padding: 60px;
+            background:
+                radial-gradient(circle at top right,
+                    rgba(136, 60, 240, .25),
+                    transparent 60%),
+                var(--bg2);
+        }
+
+        .modal-right {
+            padding: 60px;
+        }
+
+        .modal-tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 100px;
+            background: rgba(136, 60, 240, .15);
+            border: 1px solid var(--border2);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            color: var(--accent3);
+        }
+
+        .modal-left h2 {
+            font-size: 42px;
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .modal-left p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .modal-points {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            color: var(--accent3);
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 14px 16px;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .modal-submit {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 5;
+        }
+
+        @media(max-width:900px) {
+
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-left,
+            .modal-right {
+                padding: 30px;
+            }
+
+            .modal-left h2 {
+                font-size: 32px;
+            }
+        }
     </style>
 </head>
 
@@ -1105,11 +1267,17 @@
             <li><a href="#capabilities">Features</a></li>
             <li><a href="#how">How It Works</a></li>
             <li><a href="#integrations">Integrations</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
         <div class="nav-actions">
-            <a href="#final" class="btn btn-ghost">Book Demo</a>
-            <a href="#final" class="btn btn-primary">Free Scan →</a>
+            <a href="#how" class="btn btn-ghost">
+                Book Demo
+            </a>
+
+            <a href="#" class="open-demo-modal btn btn-primary">
+                Free Scan →
+            </a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -1119,16 +1287,21 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <button class="mobile-close" id="mobile-close">✕</button>
+
         <a href="#problem" class="mm-link">Problem</a>
         <a href="#capabilities" class="mm-link">Features</a>
         <a href="#how" class="mm-link">How It Works</a>
         <a href="#integrations" class="mm-link">Integrations</a>
+        <a href="#testimonials" class="mm-link">Testimonials</a>
         <a href="#faq" class="mm-link">FAQ</a>
-        <a href="#final" class="btn btn-primary btn-lg">Start Free Scan →</a>
+
+        <a href="#" class="open-demo-modal btn btn-primary btn-lg">
+            Start Free Scan →
+        </a>
     </div>
 
     <!-- HERO -->
-    <header class="hero" role="banner">
+    <header class="hero" id="hero" role="banner">
         <div class="hero-inner container">
             <div class="eyebrow">
                 <span class="eyebrow-dot"></span>
@@ -1142,8 +1315,13 @@
                 actually trust.
             </p>
             <div class="hero-ctas">
-                <a href="#final" class="btn btn-primary btn-lg">Start Your Free Audit Scan →</a>
-                <a href="#final" class="btn btn-ghost btn-lg">Book a 15-Minute Demo</a>
+                <a href="#" class="open-demo-modal btn btn-primary btn-lg">
+                    Start Your Free Audit Scan →
+                </a>
+
+                <a href="#how" class="btn btn-ghost btn-lg">
+                    Book a 15-Minute Demo
+                </a>
             </div>
             <div class="trust-strip">
                 Trusted by security, IT, and compliance teams supporting
@@ -1447,7 +1625,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section>
+    <section id="testimonials">
         <div class="container">
             <div class="reveal">
                 <div class="section-label">// social proof</div>
@@ -1546,13 +1724,95 @@
                 <p>Join security, IT, and compliance teams who run continuous audit programs — and never dread audit
                     season again.</p>
                 <div class="final-btns">
-                    <a href="#" class="btn btn-primary btn-lg">Start Your Free Audit Scan →</a>
-                    <a href="#" class="btn btn-ghost btn-lg">Talk to an Expert</a>
+                    <a href="#" class="open-demo-modal btn btn-primary btn-lg">
+                        Start Your Free Audit Scan →
+                    </a>
+
+                    <a href="#how" class="btn btn-ghost btn-lg">
+                        Talk to an Expert
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+    <!-- CONTACT MODAL -->
+    <div class="contact-modal" id="contactModal">
 
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+        <div class="modal-box">
+
+            <button class="modal-close" id="modalClose">✕</button>
+
+            <div class="modal-content">
+
+                <div class="modal-left">
+                    <span class="modal-tag">
+                        audit.ms demo
+                    </span>
+
+                    <h2>
+                        See audit.ms in action
+                    </h2>
+
+                    <p>
+                        Book a personalized walkthrough with our team and
+                        see how continuous audit automation works across
+                        your cloud, identity, and SaaS stack.
+                    </p>
+
+                    <div class="modal-points">
+                        <div>✓ Live audit timeline demo</div>
+                        <div>✓ Framework mapping walkthrough</div>
+                        <div>✓ Evidence automation preview</div>
+                        <div>✓ Q&A with product specialists</div>
+                    </div>
+                </div>
+
+                <div class="modal-right">
+
+                    <form class="demo-form">
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Carter">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Work Email</label>
+                            <input type="email" placeholder="john@company.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" placeholder="Company name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Team Size</label>
+
+                            <select>
+                                <option>1-10</option>
+                                <option>11-50</option>
+                                <option>51-200</option>
+                                <option>201-1000</option>
+                                <option>1000+</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg modal-submit">
+                            Book Demo →
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -1568,7 +1828,9 @@
                     <a href="#capabilities">Features</a>
                     <a href="#how">How It Works</a>
                     <a href="#integrations">Integrations</a>
+                    <a href="#testimonials">Testimonials</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#final">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1647,24 +1909,90 @@
     </script>
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const id = this.getAttribute('href');
-                if (id === "#") return;
 
-                const el = document.querySelector(id);
-                if (el) {
+            anchor.addEventListener('click', function (e) {
+
+                const targetId = this.getAttribute('href');
+
+                if (
+                    !targetId ||
+                    targetId === "#" ||
+                    targetId.length <= 1
+                ) return;
+
+                const targetEl = document.querySelector(targetId);
+
+                if (!targetEl) return;
+
+                e.preventDefault();
+
+                const navHeight =
+                    document.getElementById('main-nav').offsetHeight;
+
+                const targetPosition =
+                    targetEl.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    navHeight -
+                    10;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // mobile menu auto close
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+        });
+    </script>
+    <script>
+
+        const contactModal =
+            document.getElementById('contactModal');
+
+        const modalClose =
+            document.getElementById('modalClose');
+
+        const modalOverlay =
+            document.getElementById('modalOverlay');
+
+        document
+            .querySelectorAll('.open-demo-modal')
+            .forEach(btn => {
+
+                btn.addEventListener('click', (e) => {
+
                     e.preventDefault();
 
-                    const offset = 80;
-                    const top = el.getBoundingClientRect().top + window.scrollY;
+                    contactModal.classList.add('active');
 
-                    window.scrollTo({
-                        top: top - offset,
-                        behavior: "smooth"
-                    });
-                }
+                    document.body.style.overflow = 'hidden';
+                });
+
             });
+
+        function closeModal() {
+
+            contactModal.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        modalClose.addEventListener('click', closeModal);
+
+        modalOverlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+
         });
+
     </script>
 </body>
 

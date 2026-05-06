@@ -42,9 +42,11 @@
         html {
             scroll-behavior: smooth
         }
+
         html {
-        scroll-padding-top: 90px;
+            scroll-padding-top: 90px;
         }
+
         body {
             background: var(--bg);
             color: var(--text);
@@ -706,7 +708,9 @@
             opacity: 1;
             transform: translateY(0)
         }
-        .nav-links .btn-ghost , .nav-links .btn-primary{
+
+        .nav-links .btn-ghost,
+        .nav-links .btn-primary {
             display: none;
         }
 
@@ -735,15 +739,18 @@
                 padding: 80px 0 50px
             }
 
-            .nav-links,  .nav-cta .btn-primary,
+            .nav-links,
+            .nav-cta .btn-primary,
             .nav-cta .btn-ghost {
                 display: none;
             }
-          .nav-links .btn-ghost , .nav-links .btn-primary{
-            display: block;
-            margin-bottom: 20px;
-            width:  150px;
-        }
+
+            .nav-links .btn-ghost,
+            .nav-links .btn-primary {
+                display: block;
+                margin-bottom: 20px;
+                width: 150px;
+            }
 
             .menu-toggle {
                 display: block
@@ -776,6 +783,192 @@
                 font-size: 2.2rem
             }
         }
+
+        /* KUBE MODAL */
+
+        .kube-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .kube-modal.active {
+            display: flex;
+        }
+
+        .kube-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .75);
+            backdrop-filter: blur(8px);
+        }
+
+        .kube-box {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--card);
+            border: 1px solid var(--border2);
+            border-radius: 26px;
+            z-index: 2;
+            box-shadow: var(--glow);
+
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
+        }
+
+        .kube-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .kube-box::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 20px;
+        }
+
+        .kube-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .kube-left {
+            padding: 60px;
+            background:
+                radial-gradient(circle at top right,
+                    rgba(136, 60, 240, .22),
+                    transparent 60%),
+                var(--bg2);
+        }
+
+        .kube-right {
+            padding: 60px;
+        }
+
+        .kube-tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 100px;
+            border: 1px solid var(--border2);
+            background: rgba(136, 60, 240, .12);
+            color: var(--accent3);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .kube-left h2 {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .kube-left p {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .kube-points {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            color: var(--accent3);
+        }
+
+        .kube-group {
+            margin-bottom: 20px;
+        }
+
+        .kube-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .kube-group input,
+        .kube-group textarea,
+        .kube-group select {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: var(--text);
+            outline: none;
+            resize: none;
+        }
+
+        .kube-group input:focus,
+        .kube-group textarea:focus,
+        .kube-group select:focus {
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .kube-submit {
+            width: 100%;
+        }
+
+        .kube-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 5;
+        }
+
+        @media(max-width:900px) {
+
+            .kube-modal {
+                padding: 12px;
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+
+            .kube-box {
+                margin: 40px 0;
+                max-height: none;
+            }
+
+            .kube-content {
+                grid-template-columns: 1fr;
+            }
+
+            .kube-left,
+            .kube-right {
+                padding: 28px;
+            }
+
+            .kube-left h2 {
+                font-size: 32px;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .kube-left,
+            .kube-right {
+                padding: 22px;
+            }
+
+            .kube-left h2 {
+                font-size: 26px;
+            }
+
+        }
     </style>
 </head>
 
@@ -794,15 +987,26 @@
                     <li><a href="#footer">About</a></li>
 
                     <li>
-                        <a href="#cta" class="btn btn-ghost">Sign In</a>
-                        <a href="#cta" class="btn btn-primary" >
-                            Book a Demo
-                        </a>
-                    </li>
+                     <div class="nav-cta">
+
+    <a href="#" class="btn btn-ghost open-kube-modal">
+        Sign In
+    </a>
+
+    <a href="#" class="btn btn-primary open-kube-modal">
+        Book a Demo
+    </a>
+
+    <button class="menu-toggle"
+    id="menuToggle"
+    aria-label="Toggle menu">
+        ☰
+    </button>
+
+</div>
                 </ul>
             </nav>
-            <div class="nav-cta">
-                <a href="#cta" class="btn btn-ghost">Sign In</a>
+            <div clahref="#" class="open-kube-modal" class="btn btn-ghost">Sign In</a>
                 <a href="#cta" class="btn btn-primary">Book a Demo</a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
             </div>
@@ -924,7 +1128,8 @@
                     theatrics.</p>
             </div>
             <div class="grid grid-3" id="pricingGrid"></div>
-            <div style="text-align:center;margin-top:40px"><a href="#pricing" class="link-arrow">See Full Pricing →</a></div>
+            <div style="text-align:center;margin-top:40px"><a href="#pricing" class="link-arrow">See Full Pricing →</a>
+            </div>
         </div>
     </section>
 
@@ -1110,25 +1315,73 @@
         document.querySelectorAll(".reveal").forEach(el => io.observe(el));
     </script>
     <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const id = this.getAttribute('href');
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const id = this.getAttribute('href');
 
-    if (id === "#") return;
+                if (id === "#") return;
 
-    const el = document.querySelector(id);
+                const el = document.querySelector(id);
 
-    if (el) {
-      e.preventDefault();
+                if (el) {
+                    e.preventDefault();
 
-      window.scrollTo({
-        top: el.offsetTop - 80,
-        behavior: "smooth"
-      });
-    }
-  });
-});
-</script>
+                    window.scrollTo({
+                        top: el.offsetTop - 80,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+
+        const kubeModal =
+            document.getElementById('kubeModal');
+
+        const kubeClose =
+            document.getElementById('kubeClose');
+
+        const kubeOverlay =
+            document.getElementById('kubeOverlay');
+
+        document
+            .querySelectorAll('.open-kube-modal')
+            .forEach(btn => {
+
+                btn.addEventListener('click', (e) => {
+
+                    e.preventDefault();
+
+                    kubeModal.classList.add('active');
+
+                    document.body.style.overflow = 'hidden';
+
+                });
+
+            });
+
+        function closeKubeModal() {
+
+            kubeModal.classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+        kubeClose.addEventListener('click', closeKubeModal);
+
+        kubeOverlay.addEventListener('click', closeKubeModal);
+
+        document.addEventListener('keydown', (e) => {
+
+            if (e.key === 'Escape') {
+                closeKubeModal();
+            }
+
+        });
+
+    </script>
 </body>
 
 </html>
