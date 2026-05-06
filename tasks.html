@@ -97,7 +97,8 @@
             z-index: 50;
             background: rgba(24, 15, 38, .78);
             backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border)
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
         }
 
         .nav {
@@ -326,8 +327,20 @@
         /* CARDS */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 22px
+        }
+
+        @media(max-width:992px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:640px) {
+            .cards {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         .card {
@@ -371,7 +384,6 @@
 
         /* PROSE BLOCKS */
         .prose {
-            max-width: 880px;
             margin: 0 auto;
             color: var(--muted)
         }
@@ -446,7 +458,8 @@
             cursor: pointer;
             border-radius: 10px;
             transition: var(--tr);
-            font-size: .95rem
+            font-size: .95rem;
+            white-space: nowrap;
         }
 
         .tab-btn.active {
@@ -494,7 +507,7 @@
         .timeline::before {
             content: "";
             position: absolute;
-            left: 8px;
+            left: 13px;
             top: 0;
             bottom: 0;
             width: 2px;
@@ -532,7 +545,6 @@
 
         /* ACCORDION */
         .acc {
-            max-width: 880px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -910,54 +922,156 @@
         </section>
 
         <!-- MARKETS + TRAILS CARDS -->
+        <!-- MARKETS + TRAILS CARDS -->
         <section id="markets" style="background:linear-gradient(180deg,transparent,rgba(35,19,58,.4),transparent)">
             <div class="container">
+
                 <div class="section-head reveal">
                     <div class="eyebrow">On the Ground</div>
                     <h2>Markets, Trails &amp; Time Machines</h2>
                     <p>Where the real food — and the real stories — live.</p>
                 </div>
+
                 <div class="cards">
+
                     <article class="card reveal">
                         <div class="icon">🛒</div>
                         <h3>Wander the Markets</h3>
-                        <p>Walk slowly. Buy small. Try the thing being pulled fresh off the grill. Vendors are often the
-                            keepers of techniques passed down for generations.</p>
+                        <p>
+                            Walk slowly. Buy small. Try the thing being pulled fresh off the grill. Vendors are often
+                            the
+                            keepers of techniques passed down for generations.
+                        </p>
                     </article>
+
                     <article class="card reveal">
                         <div class="icon">🧭</div>
                         <h3>Follow a Thematic Trail</h3>
-                        <p>A cheese route through France. A spice trail through Kerala. A coffee circuit in Colombia.
+                        <p>
+                            A cheese route through France. A spice trail through Kerala. A coffee circuit in Colombia.
                             Following one ingredient takes you to smaller roads and smaller towns — where real
-                            discoveries hide.</p>
+                            discoveries hide.
+                        </p>
                     </article>
+
                     <article class="card reveal">
                         <div class="icon">🏛️</div>
                         <h3>Eat Through History</h3>
-                        <p>Markets that have operated on the same square for 500 years. Dining rooms that have served
-                            the same dish since before electric lights. Time machines disguised as restaurants.</p>
+                        <p>
+                            Markets that have operated on the same square for 500 years. Dining rooms that have served
+                            the same dish since before electric lights. Time machines disguised as restaurants.
+                        </p>
                     </article>
+
                     <article class="card reveal">
                         <div class="icon">✨</div>
                         <h3>Try the New Wave</h3>
-                        <p>Modern fusion done well isn't a gimmick — it's classically trained chefs producing something
-                            that could only exist in this place at this time.</p>
+                        <p>
+                            Modern fusion done well isn't a gimmick — it's classically trained chefs producing something
+                            that could only exist in this place at this time.
+                        </p>
                     </article>
+
                     <article class="card reveal">
                         <div class="icon">👀</div>
                         <h3>Eat Where You See the Kitchen</h3>
-                        <p>Open kitchens, chef's counters, and communal tables turn dinner from a transaction into a
-                            conversation. The best way to learn how a cuisine actually functions.</p>
+                        <p>
+                            Open kitchens, chef's counters, and communal tables turn dinner from a transaction into a
+                            conversation. The best way to learn how a cuisine actually functions.
+                        </p>
                     </article>
+
+                    <article class="card reveal">
+                        <div class="icon">🍽️</div>
+                        <h3>Communal Dining Experiences</h3>
+                        <p>
+                            Shared tables, chef’s counters, and open kitchens transform meals into conversations where
+                            travelers exchange stories, recommendations, and experiences with both locals and fellow
+                            visitors.
+                        </p>
+                    </article>
+
                     <article class="card reveal">
                         <div class="icon">🔪</div>
                         <h3>Honor the Tools</h3>
-                        <p>Knife makers, copper pot smiths, ceramic studios, salt harvesters. Visiting their workshops
-                            adds an unexpected dimension to a food-focused trip.</p>
+                        <p>
+                            Knife makers, copper pot smiths, ceramic studios, salt harvesters. Visiting their workshops
+                            adds an unexpected dimension to a food-focused trip.
+                        </p>
                     </article>
+
                 </div>
+
             </div>
         </section>
+
+        <!-- CULTURE + FUSION -->
+        <section id="culture-fusion">
+            <div class="container">
+
+                <div class="section-head reveal">
+                    <div class="eyebrow">Culture & Creativity</div>
+                    <h2>Food, History & Modern Culinary Culture</h2>
+                    <p>
+                        The most memorable culinary trips balance deep tradition with the creativity of modern kitchens.
+                    </p>
+                </div>
+
+                <div class="split">
+
+                    <article class="split-card reveal">
+                        <div class="icon"
+                            style="width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(136,60,240,.25),rgba(123,92,255,.15));border:1px solid var(--border2);margin-bottom:18px;font-size:1.4rem">
+                            🏺
+                        </div>
+
+                        <h3>Eat Through History</h3>
+
+                        <p>
+                            Some meals are also lessons in history. Markets that have operated on the same square for
+                            hundreds
+                            of years, dining rooms that have served the same dish since before electric lights, and
+                            recipes
+                            that survived wars, migrations, and changing generations all tell the story of a place
+                            through its
+                            food.
+                        </p>
+
+                        <p>
+                            Sitting down in one of these places is like stepping into a living archive where every
+                            ingredient,
+                            technique, and tradition connects the present to the past.
+                        </p>
+                    </article>
+
+                    <article class="split-card reveal">
+                        <div class="icon"
+                            style="width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(136,60,240,.25),rgba(123,92,255,.15));border:1px solid var(--border2);margin-bottom:18px;font-size:1.4rem">
+                            ✨
+                        </div>
+
+                        <h3>Modern Fusion & Creative Kitchens</h3>
+
+                        <p>
+                            The next generation of chefs is rewriting culinary traditions in exciting ways. The best
+                            modern
+                            fusion restaurants are not gimmicks — they combine regional techniques, local ingredients,
+                            and
+                            global inspiration to create dishes that could only exist in that specific place and time.
+                        </p>
+
+                        <p>
+                            Mixing a few creative dining experiences into a traditional itinerary keeps a culinary
+                            journey
+                            balanced, dynamic, and far more memorable.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
 
         <!-- INTENTION TIMELINE -->
         <section id="intention">
@@ -995,6 +1109,26 @@
                         <h3>Use Tech to Plan Smarter</h3>
                         <p>Reservation tools, virtual cooking classes, translation apps. Use the tools that get you to
                             the table faster and let you focus on what's actually on it.</p>
+                    </div>
+                    <div class="tl-item">
+                        <h3>Food as Cultural Exchange</h3>
+                        <p>
+                            Community cooking events, host-family stays, and shared meals create deeper connections than
+                            most tourist experiences ever could. Helping prepare food beside someone often becomes the
+                            most meaningful
+                            memory of a trip.
+                        </p>
+                    </div>
+
+                    <div class="tl-item">
+                        <h3>Technology That Enhances Travel</h3>
+                        <p>
+                            Reservation platforms, translation apps, digital maps, and virtual cooking classes make
+                            culinary
+                            travel easier and more accessible while still keeping the focus on authentic experiences and
+                            local
+                            connections.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1049,9 +1183,14 @@
             <div class="container">
                 <div class="cta-band reveal">
                     <h2>Bring It All Home</h2>
-                    <p>Plan with curiosity, leave room for the unplanned meal, and travel with respect for the producers
-                        and traditions that made the trip worth taking. Build the itinerary around the food — the rest
-                        will fall into place around it.</p>
+                    <p>
+                        The point of a culinary trip is not simply to collect plates or restaurant reservations. It is
+                        to
+                        come home with a deeper understanding of how a place works through its markets, kitchens,
+                        traditions,
+                        and people. Carry back new techniques, ingredients, and stories that continue living in your own
+                        cooking long after the trip ends.
+                    </p>
                     <div class="cta-row" style="justify-content:center">
                         <a href="#tours" class="btn btn-primary">Plan Your Next Trip →</a>
                         <a href="#top" class="btn btn-ghost">Back to Top</a>
@@ -1066,7 +1205,8 @@
         <div class="container">
             <div class="foot-grid">
                 <div>
-                    <div class="logo" style="margin-bottom:14px"><span class="logo-mark">🍴</span> Tastebound</div>
+                    <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo-mark">🍴</span>
+                        Tastebound</a>
                     <p style="font-size:.92rem;max-width:340px">Travel guides for people who plan their trips around the
                         table.</p>
                 </div>

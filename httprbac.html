@@ -287,6 +287,12 @@
             padding: 14px 0;
             border-bottom: 1px dashed var(--border)
         }
+         @media(max-width:640px){
+             .stat {
+                flex-direction: column;
+                gap: 10px;
+             }
+         }
 
         .stat:last-child {
             border-bottom: 0
@@ -390,7 +396,6 @@
 
         /* Long content sections */
         .prose {
-            max-width: 880px;
             margin: 0 auto;
             color: var(--muted)
         }
@@ -460,7 +465,8 @@
             cursor: pointer;
             border-radius: 10px;
             transition: var(--transition);
-            font-size: .95rem
+            font-size: .95rem;
+            white-space: nowrap;
         }
 
         .tab-btn.active {
@@ -615,6 +621,10 @@
             font-size: .92rem
         }
 
+        .footer-logo {
+            font-size: 20px !important;
+        }
+        
         .foot-grid a:hover {
             color: var(--accent2)
         }
@@ -913,6 +923,55 @@
             </div>
         </section>
 
+        <!-- WHAT THIS MEANS -->
+<section id="meaning">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="eyebrow">What This Means For You</div>
+            <h2>Why Understanding MBS Actually Matters</h2>
+            <p>
+                Mortgage-backed securities influence everything from your monthly payment to refinancing opportunities
+                and long-term investment strategy.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <article class="card reveal">
+                <div class="icon">🏠</div>
+                <h3>For Homeowners</h3>
+                <p>
+                    MBS are the reason your mortgage rate responds to broader bond-market movements instead of simply
+                    following your local bank. They also explain why refinancing windows open and close based on
+                    national market conditions.
+                </p>
+            </article>
+
+            <article class="card reveal">
+                <div class="icon">📈</div>
+                <h3>For Investors</h3>
+                <p>
+                    Mortgage-backed securities provide exposure to the housing market without directly owning real
+                    estate. Agency MBS offer strong liquidity, but interest-rate sensitivity, credit quality, and
+                    prepayment risk still matter.
+                </p>
+            </article>
+
+            <article class="card reveal">
+                <div class="icon">🧠</div>
+                <h3>Informed Decisions</h3>
+                <p>
+                    Understanding how MBS work turns rate watching from a guessing game into a more strategic process.
+                    Passive exposure may work for some investors, but informed exposure is almost always better.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
         <!-- FAQ -->
         <section id="faq">
             <div class="container">
@@ -981,7 +1040,7 @@
         <div class="container">
             <div class="foot-grid">
                 <div>
-                    <div class="logo" style="margin-bottom:14px"><span class="logo-mark">M</span> MBS Insider</div>
+                    <a href="#top" class="logo footer-logo" style="margin-bottom:14px"><span class="logo-mark">M</span> MBS Insider</a>
                     <p style="font-size:.92rem;max-width:340px">Plain-English coverage of how mortgages, rates, and
                         capital markets actually work.</p>
                 </div>
