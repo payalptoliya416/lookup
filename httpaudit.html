@@ -1287,10 +1287,6 @@
             <a href="#" class="open-demo-modal btn btn-primary">
                 Book Demo
             </a>
-
-            <a href="#" class="open-scan-modal btn btn-ghost">
-                Free Scan →
-            </a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -1328,14 +1324,18 @@
                 actually trust.
             </p>
             <div class="hero-ctas">
-                <a href="#" class="open-demo-modal btn btn-primary btn-lg">
-                    Start Your Free Audit Scan →
-                </a>
 
-                <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
-                    Book a 15-Minute Demo
-                </a>
-            </div>
+    <!-- FREE SCAN BUTTON -->
+    <a href="#" class="open-scan-modal btn btn-primary btn-lg">
+        Start Your Free Audit Scan →
+    </a>
+
+    <!-- DEMO BUTTON -->
+    <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
+        Book a 15-Minute Demo
+    </a>
+
+</div>
             <div class="trust-strip">
                 Trusted by security, IT, and compliance teams supporting
                 <div class="framework-badges">
@@ -1737,14 +1737,16 @@
                 <p>Join security, IT, and compliance teams who run continuous audit programs — and never dread audit
                     season again.</p>
                 <div class="final-btns">
-                    <a href="#" class="open-demo-modal btn btn-primary btn-lg">
-                        Start Your Free Audit Scan →
-                    </a>
 
-                    <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
-                        Talk to an Expert
-                    </a>
-                </div>
+    <a href="#" class="open-scan-modal btn btn-primary btn-lg">
+        Start Your Free Audit Scan →
+    </a>
+
+    <a href="#" class="open-demo-modal btn btn-ghost btn-lg">
+        Talk to an Expert
+    </a>
+
+</div>
             </div>
         </div>
     </section>
@@ -1856,7 +1858,106 @@
             </div>
         </div>
     </footer>
+<!-- ========================= -->
+<!-- FREE SCAN MODAL -->
+<!-- ========================= -->
 
+<div class="contact-modal" id="scanModal">
+
+    <div class="modal-overlay" id="scanOverlay"></div>
+
+    <div class="modal-box">
+
+        <button class="modal-close" id="scanClose">✕</button>
+
+        <div class="modal-content">
+
+            <!-- LEFT -->
+            <div class="modal-left">
+
+                <span class="modal-tag">
+                    audit.ms free scan
+                </span>
+
+                <h2>
+                    Run Your Free Security & Audit Scan
+                </h2>
+
+                <p>
+                    Discover audit gaps, risky permissions,
+                    compliance drift, and hidden exposure
+                    across your cloud and SaaS environment.
+                </p>
+
+                <div class="modal-points">
+                    <div>✓ Instant audit readiness review</div>
+                    <div>✓ Access & permission analysis</div>
+                    <div>✓ Compliance drift detection</div>
+                    <div>✓ Free findings summary report</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="modal-right">
+
+                <form class="demo-form">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Carter">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Work Email</label>
+                        <input type="email" placeholder="john@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" placeholder="Company name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cloud Environment</label>
+
+                        <select>
+                            <option>AWS</option>
+                            <option>Azure</option>
+                            <option>Google Cloud</option>
+                            <option>Hybrid / Multi-cloud</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Compliance Goal</label>
+
+                        <select>
+                            <option>SOC 2</option>
+                            <option>ISO 27001</option>
+                            <option>HIPAA</option>
+                            <option>PCI DSS</option>
+                            <option>NIST CSF</option>
+                        </select>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-lg modal-submit">
+
+                        Start Free Scan →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
     <script>
         // ── Nav shrink on scroll ──
         const nav = document.getElementById('main-nav');
@@ -2007,6 +2108,49 @@
         });
 
     </script>
+    <script>
+
+    // ── FREE SCAN MODAL ──
+
+    const scanModal =
+        document.getElementById('scanModal');
+
+    const scanClose =
+        document.getElementById('scanClose');
+
+    const scanOverlay =
+        document.getElementById('scanOverlay');
+
+    document
+        .querySelectorAll('.open-scan-modal')
+        .forEach(btn => {
+
+            btn.addEventListener('click', (e) => {
+
+                e.preventDefault();
+
+                scanModal.classList.add('active');
+
+                document.body.style.overflow = 'hidden';
+
+            });
+
+        });
+
+    function closeScanModal() {
+
+        scanModal.classList.remove('active');
+
+        document.body.style.overflow = '';
+
+    }
+
+    scanClose.addEventListener('click', closeScanModal);
+
+    scanOverlay.addEventListener('click', closeScanModal);
+
+</script>
+
 </body>
 
 </html>
